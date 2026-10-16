@@ -2,246 +2,147 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Moon Star Face Attendance</title>
-
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f0f4f8;
-    color: #243047;
-}
-
-header {
-    background: #087f70;
-    color: white;
-    text-align: center;
-    padding: 22px 12px;
-}
-
-header h2 {
-    margin: 0 0 8px;
-}
-
-header p {
-    margin: 0;
-}
-
-.container {
-    max-width: 450px;
-    margin: 35px auto;
-    padding: 15px;
-}
-
-.card {
-    background: white;
-    padding: 24px;
-    border-radius: 14px;
-    box-shadow: 0 3px 14px #00000012;
-}
-
-h3 {
-    text-align: center;
-    margin-top: 0;
-}
-
-label {
-    display: block;
-    margin: 15px 0 7px;
-    font-weight: bold;
-}
-
-input {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #ccd5df;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-button {
-    width: 100%;
-    padding: 13px;
-    margin-top: 18px;
-    border: none;
-    border-radius: 8px;
-    background: #087f70;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:disabled {
-    opacity: .6;
-}
-
-#message {
-    margin-top: 15px;
-    padding: 12px;
-    border-radius: 8px;
-    overflow-wrap: anywhere;
-}
-
-.hidden {
-    display: none;
-}
-
-.info {
-    background: #e5f5f1;
-    padding: 14px;
-    border-radius: 8px;
-    line-height: 1.7;
-    overflow-wrap: anywhere;
-}
-
-.logout {
-    background: #b42332;
-}
-
-footer {
-    text-align: center;
-    color: #687386;
-    padding: 15px;
-    font-size: 13px;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f0f4f8;color:#243047}
+header{background:#087f70;color:white;text-align:center;padding:22px 12px}
+header h2{margin:0 0 8px}
+.container{max-width:450px;margin:35px auto;padding:15px}
+.card{background:white;padding:24px;border-radius:14px;box-shadow:0 3px 14px #0001}
+h3{text-align:center}
+label{display:block;margin:15px 0 7px;font-weight:bold}
+input{width:100%;padding:13px;border:1px solid #ccd5df;border-radius:8px;font-size:16px}
+button{width:100%;padding:13px;margin-top:18px;border:0;border-radius:8px;background:#087f70;color:white;font-size:16px;font-weight:bold}
+button:disabled{opacity:.6}
+#message{margin-top:15px;padding:12px;border-radius:8px;overflow-wrap:anywhere}
+.hidden{display:none}
+.info{background:#e5f5f1;padding:14px;border-radius:8px;line-height:1.7;overflow-wrap:anywhere}
+.logout{background:#b42332}
+footer{text-align:center;color:#687386;padding:15px}
 </style>
 </head>
-
 <body>
-
 <header>
-    <h2>Moon Star Public High School</h2>
-    <p>Khanwahan</p>
-    <p>Face Attendance System</p>
+<h2>Moon Star Public High School</h2>
+<p>Khanwahan</p>
+<p>Face Attendance System</p>
 </header>
 
 <main class="container">
+<section class="card" id="loginCard">
+<h3>🔐 Login</h3>
+<form id="loginForm">
+<label for="email">Email Address</label>
+<input id="email" type="email" placeholder="Enter your email" autocomplete="username" required>
+<label for="password">Password</label>
+<input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+<button type="submit" id="loginButton">Login</button>
+</form>
+<div id="message" class="hidden" role="status"></div>
+</section>
 
-    <section class="card" id="loginCard">
-        <h3>🔐 Login</h3>
-
-        <form id="loginForm">
-
-            <label for="email">Email Address</label>
-            <input
-                id="email"
-                type="email"
-                placeholder="Enter your email"
-                autocomplete="username"
-                required
-            >
-
-            <label for="password">Password</label>
-            <input
-                id="password"
-                type="password"
-                placeholder="Enter your password"
-                autocomplete="current-password"
-                required
-            >
-
-            <button type="submit" id="loginButton">
-                Login
-            </button>
-
-        </form>
-
-        <div id="message" class="hidden" role="status"></div>
-    </section>
-
-    <section class="card hidden" id="dashboard">
-        <h3>✅ Login Successful</h3>
-
-        <div class="info">
-            <strong>School:</strong>
-            Moon Star Public High School<br>
-
-            <strong>Location:</strong>
-            Khanwahan<br><br>
-
-            <strong>Logged in as:</strong>
-            <span id="userEmail"></span><br><br>
-
-            Your Firebase login is working.
-            The attendance features will be connected
-            after the database and security setup.
-        </div>
-
-        <button class="logout" id="logoutButton">
-            Logout
-        </button>
-    </section>
-
+<section class="card hidden" id="dashboard">
+<h3>✅ Login Successful</h3>
+<div class="info">
+<strong>School:</strong> Moon Star Public High School<br>
+<strong>Location:</strong> Khanwahan<br>
+<strong>Logged in as:</strong> <span id="userEmail"></span><br><br>
+Firebase login is working. Attendance features are not yet connected.
+</div>
+<button class="logout" id="logoutButton">Logout</button>
+</section>
 </main>
 
-<footer>
-    Moon Star Public High School Khanwahan
-</footer>
+<footer>Moon Star Public High School Khanwahan</footer>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-
 <script>
-const firebaseConfig = {
-    apiKey: "AIzaSyDFiIQvhbbxoemkRZ3_DYzB4YHIWYGngkU",
-    authDomain: "moon-star-face-attendance.firebaseapp.com",
-    projectId: "moon-star-face-attendance",
-    storageBucket: "moon-star-face-attendance.firebasestorage.app",
-    messagingSenderId: "702855028449",
-    appId: "1:702855028449:web:cc0306a587a3581a98e1a0",
-    measurementId: "G-C6X4FG0FB4"
-};
+(function(){
+const message=document.getElementById("message");
+const button=document.getElementById("loginButton");
+const form=document.getElementById("loginForm");
+const loginCard=document.getElementById("loginCard");
+const dashboard=document.getElementById("dashboard");
 
-firebase.initializeApp(firebaseConfig);
-
-const auth = firebase.auth();
-
-const loginCard = document.getElementById("loginCard");
-const dashboard = document.getElementById("dashboard");
-const form = document.getElementById("loginForm");
-const message = document.getElementById("message");
-const loginButton = document.getElementById("loginButton");
-
-function showMessage(text) {
-    message.textContent = text;
-    message.classList.remove("hidden");
+function showMessage(text){
+ message.textContent=text;
+ message.classList.remove("hidden");
 }
 
-auth.onAuthStateChanged(function(user) {
-    if (user) {
-        loginCard.classList.add("hidden");
-        dashboard.classList.remove("hidden");
-        document.getElementById("userEmail").textContent =
-            user.email || "Authenticated user";
-    } else {
-        loginCard.classList.remove("hidden");
-        dashboard.classList.add("hidden");
-    }
-});
+try {
+ if(!window.firebase){
+   showMessage("Firebase load nahi hua. Internet check karein aur page refresh karein.");
+   return;
+ }
 
-form.addEventListener("submit", async function(event) {
-    event.preventDefault();
+ const firebaseConfig={
+  apiKey:"AIzaSyDFiIQvhbbxoemkRZ3_DYzB4YHIWYGngkU",
+  authDomain:"moon-star-face-attendance.firebaseapp.com",
+  projectId:"moon-star-face-attendance",
+  storageBucket:"moon-star-face-attendance.firebasestorage.app",
+  messagingSenderId:"702855028449",
+  appId:"1:702855028449:web:cc0306a587a3581a98e1a0",
+  measurementId:"G-C6X4FG0FB4"
+ };
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+ if(!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+ const auth=firebase.auth();
 
-    loginButton.disabled = true;
-    loginButton.textContent = "Logging in...";
+ auth.onAuthStateChanged(function(user){
+  if(user){
+   loginCard.classList.add("hidden");
+   dashboard.classList.remove("hidden");
+   document.getElementById("userEmail").textContent=user.email||"Authenticated user";
+  }else{
+   loginCard.classList.remove("hidden");
+   dashboard.classList.add("hidden");
+  }
+ },function(error){
+  showMessage("Authentication error: "+error.message);
+ });
 
-    try {
-        await auth.signInWithEmailAndPassword(email, password);
-        showMessage("Login successful.");
-    } catch (error) {
-        const messages = {
-            "auth/invalid-credential":
-                "Email ya password sahi nahi hai.",
-            "auth/too-many-requests":
-                "Bohat zyada koshish hui. Baad mein dobara try karein.",
-            "
+ form.addEventListener("submit",async function(event){
+  event.preventDefault();
+  message.classList.add("hidden");
+  button.disabled=true;
+  button.textContent="Logging in...";
+
+  const email=document.getElementById("email").value.trim();
+  const password=document.getElementById("password").value;
+
+  try{
+   await auth.signInWithEmailAndPassword(email,password);
+   showMessage("Login successful.");
+  }catch(error){
+   const errors={
+    "auth/invalid-credential":"Email ya password ghalat hai.",
+    "auth/user-not-found":"Ye email Firebase Users mein nahi mila.",
+    "auth/wrong-password":"Password ghalat hai.",
+    "auth/invalid-email":"Email ka format check karein.",
+    "auth/too-many-requests":"Bohat zyada koshish hui. Kuch der baad try karein.",
+    "auth/network-request-failed":"Internet connection check karein.",
+    "auth/unauthorized-domain":"Firebase Authorized domains mein mehak577.github.io add karein.",
+    "auth/operation-not-allowed":"Firebase mein Email/Password sign-in enable karein."
+   };
+   showMessage(errors[error.code]||("Login error: "+error.code+" — "+error.message));
+  }finally{
+   button.disabled=false;
+   button.textContent="Login";
+  }
+ });
+
+ document.getElementById("logoutButton").addEventListener("click",function(){
+  auth.signOut().catch(function(error){
+   showMessage("Logout error: "+error.message);
+  });
+ });
+
+}catch(error){
+ showMessage("App error: "+error.message);
+}
+})();
+</script>
+</bologoutButtonn
