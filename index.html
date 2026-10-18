@@ -21,6 +21,7 @@ button{border:none;border-radius:7px;padding:11px 15px;margin-top:12px;cursor:po
 button:disabled{opacity:.6;cursor:not-allowed}
 .danger{background:#c62828}
 .secondary{background:#526477}
+.success{background:#218838}
 .full{width:100%}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .hidden{display:none!important}
@@ -34,182 +35,181 @@ th{background:#e7eff9}
 .small-btn{padding:7px 10px;margin:3px;font-size:13px}
 footer{text-align:center;padding:20px;color:#64748b}
 @media(max-width:600px){
- .grid{grid-template-columns:1fr}
- .card{padding:14px}
- header h1{font-size:20px}
+.grid{grid-template-columns:1fr}
+.card{padding:14px}
+header h1{font-size:20px}
 }
 </style>
 </head>
 
 <body>
+
 <header>
-  <h1>Moon Star Public High School</h1>
-  <p>Khanwahan</p>
-  <p>School Management System</p>
+<h1>Moon Star Public High School</h1>
+<p>Khanwahan</p>
+<p>School Management System</p>
 </header>
 
 <div class="container">
 
-  <!-- LOGIN -->
-  <section id="loginCard" class="card">
-    <h2>Login</h2>
+<section id="loginCard" class="card">
+<h2>Login</h2>
 
-    <label>Email Address</label>
-    <input id="email" type="email" placeholder="Enter email" autocomplete="username">
+<label>Email Address</label>
+<input id="email" type="email" placeholder="Enter email" autocomplete="username">
 
-    <label>Password</label>
-    <input id="password" type="password" placeholder="Enter password" autocomplete="current-password">
+<label>Password</label>
+<input id="password" type="password" placeholder="Enter password" autocomplete="current-password">
 
-    <button id="loginBtn" class="full">Login</button>
-    <div id="loginMessage" class="status hidden"></div>
-  </section>
+<button id="loginBtn" class="full">Login</button>
+<div id="loginMessage" class="status hidden"></div>
+</section>
 
-  <!-- DASHBOARD -->
-  <section id="dashboard" class="hidden">
+<section id="dashboard" class="hidden">
 
-    <div class="card">
-      <h2>Dashboard</h2>
-      <div id="userInfo"></div>
-      <button id="refreshBtn" class="full">Refresh Records</button>
-      <button id="logoutBtn" class="danger full">Logout</button>
-      <div id="appMessage" class="status hidden"></div>
-    </div>
+<div class="card">
+<h2>Dashboard</h2>
+<div id="userInfo"></div>
+<button id="refreshBtn" class="full">Refresh Records</button>
+<button id="logoutBtn" class="danger full">Logout</button>
+<div id="appMessage" class="status hidden"></div>
+</div>
 
-    <!-- CLASS MANAGEMENT -->
-    <section id="classSection" class="card hidden">
-      <h2>Class Management</h2>
-      <p>Class ka naam aur sections comma se alag likhein. Misal: Nursery | A, B</p>
+<!-- CLASS MANAGEMENT -->
+<section id="classSection" class="card hidden">
+<h2>Class Management</h2>
+<p>Class ka naam aur sections comma se alag likhein. Misal: Nursery | A, B</p>
 
-      <form id="classForm">
-        <input type="hidden" id="classDocId">
+<form id="classForm">
+<input type="hidden" id="classDocId">
 
-        <label>Class Name</label>
-        <input id="className" placeholder="Nursery, KG, Class 1" required>
+<label>Class Name</label>
+<input id="className" placeholder="Nursery, KG, Class 1" required>
 
-        <label>Sections</label>
-        <input id="sectionNames" placeholder="A, B, C" required>
+<label>Sections</label>
+<input id="sectionNames" placeholder="A, B, C" required>
 
-        <button type="submit" id="saveClassBtn">Save Class</button>
-        <button type="button" id="cancelClassBtn" class="secondary hidden">Cancel Edit</button>
-      </form>
+<button type="submit" id="saveClassBtn">Save Class</button>
+<button type="button" id="cancelClassBtn" class="secondary hidden">Cancel Edit</button>
+</form>
 
-      <h3>Available Classes</h3>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Class</th><th>Sections</th><th>Actions</th></tr>
-          </thead>
-          <tbody id="classesTable"></tbody>
-        </table>
-      </div>
+<h3>Available Classes</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Class</th><th>Sections</th><th>Actions</th></tr></thead>
+<tbody id="classesTable"></tbody>
+</table>
+</div>
 
-      <p>Students wali class delete nahi hogi. Pehle students ko doosri class mein move karein.</p>
-    </section>
+<p>Students wali class delete nahi hogi. Pehle students ko doosri class mein move karein.</p>
+</section>
 
-    <!-- STUDENT REGISTRATION: CLASS MANAGEMENT KE NEECHE -->
-    <section id="studentSection" class="card hidden">
-      <h2 id="studentFormTitle">Student Registration</h2>
+<!-- STUDENT REGISTRATION -->
+<section id="studentSection" class="card hidden">
+<h2 id="studentFormTitle">Student Registration</h2>
 
-      <form id="studentForm">
-        <input type="hidden" id="studentDocId">
+<form id="studentForm">
+<input type="hidden" id="studentDocId">
 
-        <div class="grid">
-          <div>
-            <label>GR Number</label>
-            <input id="grNumber" placeholder="Enter GR Number" required>
-          </div>
+<div class="grid">
 
-          <div>
-            <label>Student Name</label>
-            <input id="studentName" placeholder="Student name" required>
-          </div>
+<div>
+<label>GR Number</label>
+<input id="grNumber" placeholder="Enter GR Number" required>
+</div>
 
-          <div>
-            <label>Father Name</label>
-            <input id="fatherName" placeholder="Father name" required>
-          </div>
+<div>
+<label>Student Name</label>
+<input id="studentName" placeholder="Student name" required>
+</div>
 
-          <div>
-            <label>Date of Birth</label>
-            <input id="dob" type="date">
-          </div>
+<div>
+<label>Father Name</label>
+<input id="fatherName" placeholder="Father name" required>
+</div>
 
-          <div>
-            <label>Gender</label>
-            <select id="gender">
-              <option value="">Select Gender</option>
-              <option value="Boy">Boy</option>
-              <option value="Girl">Girl</option>
-            </select>
-          </div>
+<div>
+<label>Date of Birth</label>
+<input id="dob" type="date">
+</div>
 
-          <div>
-            <label>Class</label>
-            <select id="studentClass" required>
-              <option value="">Select Class</option>
-            </select>
-          </div>
+<div>
+<label>Gender</label>
+<select id="gender">
+<option value="">Select Gender</option>
+<option value="Boy">Boy</option>
+<option value="Girl">Girl</option>
+</select>
+</div>
 
-          <div>
-            <label>Section</label>
-            <select id="studentSection" required>
-              <option value="">Select Section</option>
-            </select>
-          </div>
-        </div>
+<div>
+<label>Class</label>
+<select id="studentClass" required>
+<option value="">Select Class</option>
+</select>
+</div>
 
-        <button type="submit" id="saveStudentBtn">Save Student</button>
-        <button type="button" id="cancelStudentBtn" class="secondary hidden">Cancel Edit</button>
-      </form>
-    </section>
+<div>
+<label>Section</label>
+<select id="studentSection" required>
+<option value="">Select Section</option>
+</select>
+</div>
 
-    <!-- STUDENT RECORDS -->
-    <section class="card">
-      <h2>Student Records</h2>
+</div>
 
-      <div class="grid">
-        <div>
-          <label>Search Student</label>
-          <input id="searchStudent" placeholder="Search name or GR number">
-        </div>
+<button type="submit" id="saveStudentBtn">Save Student</button>
+<button type="button" id="cancelStudentBtn" class="secondary hidden">Cancel Edit</button>
+</form>
+</section>
 
-        <div>
-          <label>Filter by Class</label>
-          <select id="filterClass">
-            <option value="">All Classes</option>
-          </select>
-        </div>
+<!-- STUDENT RECORDS -->
+<section class="card">
+<h2>Student Records</h2>
 
-        <div>
-          <label>Filter by Section</label>
-          <select id="filterSection">
-            <option value="">All Sections</option>
-          </select>
-        </div>
-      </div>
+<div class="grid">
+<div>
+<label>Search Student</label>
+<input id="searchStudent" placeholder="Search name or GR number">
+</div>
 
-      <p id="studentCount">Students: 0</p>
+<div>
+<label>Filter by Class</label>
+<select id="filterClass">
+<option value="">All Classes</option>
+</select>
+</div>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>GR Number</th>
-              <th>Student Name</th>
-              <th>Father Name</th>
-              <th>Date of Birth</th>
-              <th>Gender</th>
-              <th>Class</th>
-              <th>Section</th>
-              <th id="actionsHeading">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="studentsTable"></tbody>
-        </table>
-      </div>
-    </section>
+<div>
+<label>Filter by Section</label>
+<select id="filterSection">
+<option value="">All Sections</option>
+</select>
+</div>
+</div>
 
-  </section>
+<p id="studentCount">Students: 0</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>GR Number</th>
+<th>Student Name</th>
+<th>Father Name</th>
+<th>Date of Birth</th>
+<th>Gender</th>
+<th>Class</th>
+<th>Section</th>
+<th id="actionsHeading">Actions</th>
+</tr>
+</thead>
+<tbody id="studentsTable"></tbody>
+</table>
+</div>
+</section>
+
+</section>
 </div>
 
 <footer>Moon Star Public High School, Khanwahan</footer>
@@ -219,6 +219,8 @@ footer{text-align:center;padding:20px;color:#64748b}
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
+/* FIREBASE CONFIG */
+
 const firebaseConfig = {
   apiKey: "AIzaSyDFiIQvhbbxoemkRZ3_DYzB4YHIWYGngkU",
   authDomain: "moon-star-face-attendance.firebaseapp.com",
@@ -243,6 +245,8 @@ let loading = false;
 const $ = id => document.getElementById(id);
 const isAdmin = () => currentRole === "admin";
 
+/* MESSAGES */
+
 function showMessage(id, message, type = "") {
   const el = $(id);
   el.textContent = message;
@@ -252,13 +256,17 @@ function showMessage(id, message, type = "") {
 
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, ch => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;",
-    '"':"&quot;", "'":"&#39;"
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
   })[ch]);
 }
 
 function friendlyError(error) {
-  const code = error && error.code;
+  const code = error?.code || "";
+
   const messages = {
     "auth/invalid-email":"Email address durust nahi hai.",
     "auth/user-not-found":"Is email ka account nahi mila.",
@@ -268,40 +276,49 @@ function friendlyError(error) {
     "auth/network-request-failed":"Internet connection check karein.",
     "permission-denied":"Firebase permission nahi mili. Security Rules check karein."
   };
-  return messages[code] || (error && error.message) || "Koi error aaya hai.";
+
+  if (messages[code]) return messages[code];
+
+  if (code.includes("permission-denied")) {
+    return "Firestore Rules ne permission deny ki. Firebase Security Rules check karein.";
+  }
+
+  return error?.message || "Koi error aaya hai.";
 }
 
 /* LOGIN */
+
 $("loginBtn").addEventListener("click", async () => {
   const email = $("email").value.trim();
   const password = $("password").value;
 
   if (!email || !password) {
-    showMessage("loginMessage", "Email aur password likhein.", "error");
+    showMessage("loginMessage","Email aur password likhein.","error");
     return;
   }
 
   $("loginBtn").disabled = true;
-  showMessage("loginMessage", "Login ho raha hai...");
+  showMessage("loginMessage","Login ho raha hai...");
 
   try {
-    await auth.signInWithEmailAndPassword(email, password);
-  } catch (error) {
-    showMessage("loginMessage", friendlyError(error), "error");
+    await auth.signInWithEmailAndPassword(email,password);
+  } catch(error) {
+    showMessage("loginMessage",friendlyError(error),"error");
   } finally {
     $("loginBtn").disabled = false;
   }
 });
 
-$("password").addEventListener("keydown", e => {
-  if (e.key === "Enter") $("loginBtn").click();
+$("password").addEventListener("keydown",e => {
+  if(e.key === "Enter") $("loginBtn").click();
 });
 
-/* LOGIN STATE AND ROLE */
+/* AUTH STATE */
+
 auth.onAuthStateChanged(async user => {
   currentUser = user;
 
-  if (!user) {
+  if(!user) {
     currentRole = "";
     $("loginCard").classList.remove("hidden");
     $("dashboard").classList.add("hidden");
@@ -311,66 +328,75 @@ auth.onAuthStateChanged(async user => {
   try {
     const userDoc = await db.collection("Users").doc(user.uid).get();
 
-    if (!userDoc.exists) {
+    if(!userDoc.exists) {
       await auth.signOut();
-      showMessage("loginMessage", "Users collection mein role record nahi mila.", "error");
+      showMessage("loginMessage","Users collection mein role record nahi mila.","error");
       return;
     }
 
     currentRole = String(userDoc.data().role || "").trim().toLowerCase();
 
-    if (!["admin", "principal"].includes(currentRole)) {
+    if(!["admin","principal"].includes(currentRole)) {
       await auth.signOut();
-      showMessage("loginMessage", "Account role admin ya principal hona chahiye.", "error");
+      showMessage("loginMessage","Role admin ya principal hona chahiye.","error");
       return;
     }
 
     $("loginCard").classList.add("hidden");
     $("dashboard").classList.remove("hidden");
-    $("userInfo").textContent = "Logged in: " + user.email + " | Role: " + currentRole.toUpperCase();
 
-    $("classSection").classList.toggle("hidden", !isAdmin());
+    $("userInfo").textContent =
+      "Logged in: " + (user.email || "") +
+      " | Role: " + currentRole.toUpperCase();
 
-    /* Student form Admin ke liye hamesha visible */
-    $("studentSection").classList.toggle("hidden", !isAdmin());
-
-    $("actionsHeading").classList.toggle("hidden", !isAdmin());
+    $("classSection").classList.toggle("hidden",!isAdmin());
+    $("studentSection").classList.toggle("hidden",!isAdmin());
+    $("actionsHeading").classList.toggle("hidden",!isAdmin());
 
     await refreshAll();
-  } catch (error) {
-    showMessage("loginMessage", "Role load nahi hua: " + friendlyError(error), "error");
+
+  } catch(error) {
+    showMessage("loginMessage","Role load nahi hua: "+friendlyError(error),"error");
   }
 });
 
-$("logoutBtn").addEventListener("click", async () => {
+/* LOGOUT */
+
+$("logoutBtn").addEventListener("click",async () => {
   try {
     await auth.signOut();
-  } catch (error) {
-    showMessage("appMessage", friendlyError(error), "error");
+  } catch(error) {
+    showMessage("appMessage",friendlyError(error),"error");
   }
 });
 
-$("refreshBtn").addEventListener("click", refreshAll);
+/* REFRESH */
 
-/* REFRESH DATA */
+$("refreshBtn").addEventListener("click",refreshAll);
+
 async function refreshAll() {
-  if (!currentUser || loading) return;
+  if(!currentUser || loading) return;
 
   loading = true;
-  showMessage("appMessage", "Records load ho rahe hain...");
+  $("refreshBtn").disabled = true;
+
+  showMessage("appMessage","Records load ho rahe hain...");
 
   try {
     await loadClasses();
     await loadStudents();
-    showMessage("appMessage", "Records successfully load ho gaye.", "ok");
-  } catch (error) {
-    showMessage("appMessage", "Records load nahi hue: " + friendlyError(error), "error");
+
+    showMessage("appMessage","Records successfully load ho gaye.","ok");
+  } catch(error) {
+    showMessage("appMessage","Records load nahi hue: "+friendlyError(error),"error");
   } finally {
     loading = false;
+    $("refreshBtn").disabled = false;
   }
 }
 
 /* CLASS MANAGEMENT */
+
 async function loadClasses() {
   const snapshot = await db.collection("Classes").get();
 
@@ -379,26 +405,31 @@ async function loadClasses() {
     ...doc.data()
   }));
 
-  classes.sort((a, b) => String(a.name || "").localeCompare(String(b.name || "")));
+  classes.sort((a,b) =>
+    String(a.name || "").localeCompare(String(b.name || ""))
+  );
 
   renderClasses();
   populateClassDropdowns();
 }
 
 function normalizeSections(value) {
-  return [...new Set(value.split(",").map(s => s.trim()).filter(Boolean))];
+  return [...new Set(
+    value.split(",").map(s => s.trim()).filter(Boolean)
+  )];
 }
 
-$("classForm").addEventListener("submit", async e => {
+$("classForm").addEventListener("submit",async e => {
   e.preventDefault();
-  if (!isAdmin()) return;
+
+  if(!isAdmin()) return;
 
   const name = $("className").value.trim();
   const sections = normalizeSections($("sectionNames").value);
   const docId = $("classDocId").value;
 
-  if (!name || !sections.length) {
-    showMessage("appMessage", "Class aur kam az kam ek section likhein.", "error");
+  if(!name || !sections.length) {
+    showMessage("appMessage","Class aur kam az kam ek section likhein.","error");
     return;
   }
 
@@ -407,21 +438,21 @@ $("classForm").addEventListener("submit", async e => {
     String(c.name || "").trim().toLowerCase() === name.toLowerCase()
   );
 
-  if (duplicate) {
-    showMessage("appMessage", "Yeh class pehle se mojood hai.", "error");
+  if(duplicate) {
+    showMessage("appMessage","Yeh class pehle se mojood hai.","error");
     return;
   }
 
-  try {
-    $("saveClassBtn").disabled = true;
+  $("saveClassBtn").disabled = true;
 
+  try {
     const data = {
       name,
       sections,
       updatedAt: firebase.firestore.FieldValue.serverTimestamp()
     };
 
-    if (docId) {
+    if(docId) {
       await db.collection("Classes").doc(docId).update(data);
     } else {
       data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
@@ -430,9 +461,10 @@ $("classForm").addEventListener("submit", async e => {
 
     resetClassForm();
     await loadClasses();
-    showMessage("appMessage", "Class successfully save ho gayi.", "ok");
-  } catch (error) {
-    showMessage("appMessage", "Class save nahi hui: " + friendlyError(error), "error");
+
+    showMessage("appMessage","Class successfully save ho gayi.","ok");
+  } catch(error) {
+    showMessage("appMessage","Class save nahi hui: "+friendlyError(error),"error");
   } finally {
     $("saveClassBtn").disabled = false;
   }
@@ -441,68 +473,78 @@ $("classForm").addEventListener("submit", async e => {
 function renderClasses() {
   const tbody = $("classesTable");
 
-  if (!classes.length) {
-    tbody.innerHTML = '<tr><td colspan="3">Abhi koi class add nahi hui.</td></tr>';
+  if(!classes.length) {
+    tbody.innerHTML =
+      '<tr><td colspan="3">Abhi koi class add nahi hui.</td></tr>';
     return;
   }
 
   tbody.innerHTML = classes.map(c => `
     <tr>
       <td>${escapeHTML(c.name || "")}</td>
-      <td>${escapeHTML((Array.isArray(c.sections) ? c.sections : []).join(", "))}</td>
+      <td>${escapeHTML(Array.isArray(c.sections) ? c.sections.join(", ") : "")}</td>
       <td>
-        <button class="small-btn" data-edit-class="${escapeHTML(c.id)}">Edit</button>
-        <button class="small-btn danger" data-delete-class="${escapeHTML(c.id)}">Delete</button>
+        <button type="button" class="small-btn"
+          data-edit-class="${escapeHTML(c.id)}">Edit</button>
+        <button type="button" class="small-btn danger"
+          data-delete-class="${escapeHTML(c.id)}">Delete</button>
       </td>
     </tr>
   `).join("");
 }
 
-$("classesTable").addEventListener("click", async e => {
-  const editId = e.target.dataset.editClass;
-  const deleteId = e.target.dataset.deleteClass;
+$("classesTable").addEventListener("click",async e => {
+  const editButton = e.target.closest("[data-edit-class]");
+  const deleteButton = e.target.closest("[data-delete-class]");
 
-  if (editId) {
-    const c = classes.find(item => item.id === editId);
-    if (!c) return;
+  if(editButton) {
+    const c = classes.find(item => item.id === editButton.dataset.editClass);
+    if(!c) return;
 
     $("classDocId").value = c.id;
     $("className").value = c.name || "";
-    $("sectionNames").value = (c.sections || []).join(", ");
+    $("sectionNames").value = Array.isArray(c.sections) ? c.sections.join(", ") : "";
     $("saveClassBtn").textContent = "Update Class";
     $("cancelClassBtn").classList.remove("hidden");
     $("classSection").scrollIntoView({behavior:"smooth"});
   }
 
-  if (deleteId) await deleteClass(deleteId);
+  if(deleteButton) {
+    await deleteClass(deleteButton.dataset.deleteClass);
+  }
 });
 
 async function deleteClass(id) {
-  const c = classes.find(item => item.id === id);
-  if (!c || !isAdmin()) return;
+  if(!isAdmin()) return;
 
-  if (!confirm('Kya "' + c.name + '" class delete karni hai?')) return;
+  const c = classes.find(item => item.id === id);
+  if(!c) return;
+
+  if(!confirm('Kya "' + c.name + '" class delete karni hai?')) return;
 
   try {
     const snapshot = await db.collection("Students")
-      .where("className", "==", c.name)
-      .limit(1).get();
+      .where("className","==",c.name)
+      .limit(1)
+      .get();
 
-    if (!snapshot.empty) {
-      showMessage("appMessage", "Is class mein student record hai. Pehle student ki class change karein.", "error");
+    if(!snapshot.empty) {
+      showMessage("appMessage","Is class mein students hain. Pehle unki class change karein.","error");
       return;
     }
 
     await db.collection("Classes").doc(id).delete();
+
     resetClassForm();
     await loadClasses();
-    showMessage("appMessage", "Class delete ho gayi.", "ok");
-  } catch (error) {
-    showMessage("appMessage", "Class delete nahi hui: " + friendlyError(error), "error");
+
+    showMessage("appMessage","Class delete ho gayi.","ok");
+  } catch(error) {
+    showMessage("appMessage","Class delete nahi hui: "+friendlyError(error),"error");
   }
 }
 
-$("cancelClassBtn").addEventListener("click", resetClassForm);
+$("cancelClassBtn").addEventListener("click",resetClassForm);
 
 function resetClassForm() {
   $("classForm").reset();
@@ -511,7 +553,8 @@ function resetClassForm() {
   $("cancelClassBtn").classList.add("hidden");
 }
 
-/* CLASS AND SECTION DROPDOWNS */
+/* CLASS DROPDOWNS */
+
 function populateClassDropdowns() {
   const oldStudentClass = $("studentClass").value;
   const oldFilterClass = $("filterClass").value;
@@ -520,22 +563,22 @@ function populateClassDropdowns() {
   $("filterClass").innerHTML = '<option value="">All Classes</option>';
 
   classes.forEach(c => {
-    const o1 = document.createElement("option");
-    o1.value = c.name;
-    o1.textContent = c.name;
-    $("studentClass").appendChild(o1);
+    const option1 = document.createElement("option");
+    option1.value = c.name;
+    option1.textContent = c.name;
+    $("studentClass").appendChild(option1);
 
-    const o2 = document.createElement("option");
-    o2.value = c.name;
-    o2.textContent = c.name;
-    $("filterClass").appendChild(o2);
+    const option2 = document.createElement("option");
+    option2.value = c.name;
+    option2.textContent = c.name;
+    $("filterClass").appendChild(option2);
   });
 
-  if (classes.some(c => c.name === oldStudentClass)) {
+  if(classes.some(c => c.name === oldStudentClass)) {
     $("studentClass").value = oldStudentClass;
   }
 
-  if (classes.some(c => c.name === oldFilterClass)) {
+  if(classes.some(c => c.name === oldFilterClass)) {
     $("filterClass").value = oldFilterClass;
   }
 
@@ -543,7 +586,7 @@ function populateClassDropdowns() {
   updateFilterSections();
 }
 
-$("studentClass").addEventListener("change", updateStudentSections);
+$("studentClass").addEventListener("change",updateStudentSections);
 
 function updateStudentSections() {
   const className = $("studentClass").value;
@@ -553,7 +596,7 @@ function updateStudentSections() {
 
   const c = classes.find(item => item.name === className);
 
-  if (c && Array.isArray(c.sections)) {
+  if(c && Array.isArray(c.sections)) {
     c.sections.forEach(section => {
       const option = document.createElement("option");
       option.value = section;
@@ -562,14 +605,14 @@ function updateStudentSections() {
     });
   }
 
-  if (c && (c.sections || []).includes(oldSection)) {
+  if(c && (c.sections || []).includes(oldSection)) {
     $("studentSection").value = oldSection;
   }
 }
 
-$("filterClass").addEventListener("change", updateFilterSections);
-$("filterSection").addEventListener("change", renderStudents);
-$("searchStudent").addEventListener("input", renderStudents);
+$("filterClass").addEventListener("change",updateFilterSections);
+$("filterSection").addEventListener("change",renderStudents);
+$("searchStudent").addEventListener("input",renderStudents);
 
 function updateFilterSections() {
   const className = $("filterClass").value;
@@ -580,12 +623,12 @@ function updateFilterSections() {
 
   const sectionSet = new Set();
 
-  if (className) {
+  if(className) {
     const c = classes.find(item => item.name === className);
     (c?.sections || []).forEach(s => sectionSet.add(s));
   } else {
     students.forEach(s => {
-      if (s.section) sectionSet.add(s.section);
+      if(s.section) sectionSet.add(s.section);
     });
   }
 
@@ -596,14 +639,15 @@ function updateFilterSections() {
     sectionSelect.appendChild(option);
   });
 
-  if ([...sectionSet].includes(oldSection)) {
+  if([...sectionSet].includes(oldSection)) {
     sectionSelect.value = oldSection;
   }
 
   renderStudents();
 }
 
-/* STUDENT RECORDS */
+/* LOAD STUDENTS */
+
 async function loadStudents() {
   const snapshot = await db.collection("Students").get();
 
@@ -612,7 +656,7 @@ async function loadStudents() {
     ...doc.data()
   }));
 
-  students.sort((a, b) =>
+  students.sort((a,b) =>
     String(a.studentName || "").localeCompare(String(b.studentName || ""))
   );
 
@@ -620,10 +664,15 @@ async function loadStudents() {
   renderStudents();
 }
 
-/* SAVE / UPDATE STUDENT */
-$("studentForm").addEventListener("submit", async e => {
+/* SAVE OR UPDATE STUDENT */
+
+$("studentForm").addEventListener("submit",async e => {
   e.preventDefault();
-  if (!isAdmin()) return;
+
+  if(!isAdmin()) {
+    showMessage("appMessage","Sirf Admin student save kar sakta hai.","error");
+    return;
+  }
 
   const docId = $("studentDocId").value;
   const grNumber = $("grNumber").value.trim();
@@ -634,26 +683,29 @@ $("studentForm").addEventListener("submit", async e => {
   const className = $("studentClass").value;
   const section = $("studentSection").value;
 
-  if (!grNumber || !studentName || !fatherName || !className || !section) {
-    showMessage("appMessage", "Zaroori fields complete karein.", "error");
+  if(!grNumber || !studentName || !fatherName || !className || !section) {
+    showMessage("appMessage","GR Number, Student Name, Father Name, Class aur Section zaroor bharein.","error");
     return;
   }
 
   const selectedClass = classes.find(c =>
-    c.name === className && (c.sections || []).includes(section)
+    c.name === className &&
+    Array.isArray(c.sections) &&
+    c.sections.includes(section)
   );
 
-  if (!selectedClass) {
-    showMessage("appMessage", "Class aur section dobara select karein.", "error");
+  if(!selectedClass) {
+    showMessage("appMessage","Class aur section dobara select karein.","error");
     return;
   }
 
   const duplicateGR = students.some(s =>
-    String(s.grNumber || "").trim() === grNumber && s.id !== docId
+    String(s.grNumber || "").trim().toLowerCase() === grNumber.toLowerCase()
+    && s.id !== docId
   );
 
-  if (duplicateGR) {
-    showMessage("appMessage", "Yeh GR Number pehle se mojood hai.", "error");
+  if(duplicateGR) {
+    showMessage("appMessage","Yeh GR Number pehle se mojood hai.","error");
     return;
   }
 
@@ -668,10 +720,11 @@ $("studentForm").addEventListener("submit", async e => {
     updatedAt: firebase.firestore.FieldValue.serverTimestamp()
   };
 
-  try {
-    $("saveStudentBtn").disabled = true;
+  $("saveStudentBtn").disabled = true;
+  showMessage("appMessage","Student save ho raha hai...");
 
-    if (docId) {
+  try {
+    if(docId) {
       await db.collection("Students").doc(docId).update(data);
     } else {
       data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
@@ -679,38 +732,53 @@ $("studentForm").addEventListener("submit", async e => {
     }
 
     resetStudentForm();
+
+    // Firebase se dobara records load honge
     await loadStudents();
 
-    showMessage("appMessage", docId ? "Student update ho gaya." : "Student Firebase mein save ho gaya.", "ok");
-  } catch (error) {
-    showMessage("appMessage", "Student save nahi hua: " + friendlyError(error), "error");
+    showMessage(
+      "appMessage",
+      docId ? "Student successfully update ho gaya." : "Student Firebase mein successfully save ho gaya.",
+      "ok"
+    );
+
+  } catch(error) {
+    showMessage(
+      "appMessage",
+      "Student save nahi hua: " + friendlyError(error),
+      "error"
+    );
   } finally {
     $("saveStudentBtn").disabled = false;
   }
 });
 
-/* SHOW STUDENT TABLE */
+/* RENDER STUDENTS */
+
 function renderStudents() {
   const tbody = $("studentsTable");
   const search = $("searchStudent").value.trim().toLowerCase();
-  const classFilter = $("filterClass").value;
-  const sectionFilter = $("filterSection").value;
+  const filterClass = $("filterClass").value;
+  const filterSection = $("filterSection").value;
 
   const filtered = students.filter(s => {
-    const text = [
-      s.grNumber, s.studentName, s.fatherName,
-      s.className, s.section
-    ].join(" ").toLowerCase();
+    const matchesSearch =
+      String(s.studentName || "").toLowerCase().includes(search) ||
+      String(s.grNumber || "").toLowerCase().includes(search) ||
+      String(s.fatherName || "").toLowerCase().includes(search);
 
-    return text.includes(search) &&
-      (!classFilter || s.className === classFilter) &&
-      (!sectionFilter || s.section === sectionFilter);
+    const matchesClass = !filterClass || s.className === filterClass;
+    const matchesSection = !filterSection || s.section === filterSection;
+
+    return matchesSearch && matchesClass && matchesSection;
   });
 
-  $("studentCount").textContent = "Students: " + filtered.length;
+  $("studentCount").textContent =
+    "Students: " + filtered.length + " (Total: " + students.length + ")";
 
-  if (!filtered.length) {
-    tbody.innerHTML = '<tr><td colspan="8">Koi student record nahi mila.</td></tr>';
+  if(!filtered.length) {
+    tbody.innerHTML =
+      '<tr><td colspan="8">Koi student record nahi mila.</td></tr>';
     return;
   }
 
@@ -723,25 +791,27 @@ function renderStudents() {
       <td>${escapeHTML(s.gender || "")}</td>
       <td>${escapeHTML(s.className || "")}</td>
       <td>${escapeHTML(s.section || "")}</td>
-      ${isAdmin() ? `
-        <td>
-          <button class="small-btn" data-edit-student="${escapeHTML(s.id)}">Edit</button>
-          <button class="small-btn danger" data-delete-student="${escapeHTML(s.id)}">Delete</button>
-        </td>` : ""}
+      <td class="${isAdmin() ? "" : "hidden"}">
+        <button type="button" class="small-btn"
+          data-edit-student="${escapeHTML(s.id)}">Edit</button>
+        <button type="button" class="small-btn danger"
+          data-delete-student="${escapeHTML(s.id)}">Delete</button>
+      </td>
     </tr>
   `).join("");
 }
 
-/* EDIT / DELETE STUDENT */
-$("studentsTable").addEventListener("click", async e => {
-  if (!isAdmin()) return;
+/* EDIT OR DELETE STUDENT */
 
-  const editId = e.target.dataset.editStudent;
-  const deleteId = e.target.dataset.deleteStudent;
+$("studentsTable").addEventListener("click",async e => {
+  const editButton = e.target.closest("[data-edit-student]");
+  const deleteButton = e.target.closest("[data-delete-student]");
 
-  if (editId) {
-    const s = students.find(item => item.id === editId);
-    if (!s) return;
+  if(editButton) {
+    if(!isAdmin()) return;
+
+    const s = students.find(item => item.id === editButton.dataset.editStudent);
+    if(!s) return;
 
     $("studentDocId").value = s.id;
     $("grNumber").value = s.grNumber || "";
@@ -749,8 +819,8 @@ $("studentsTable").addEventListener("click", async e => {
     $("fatherName").value = s.fatherName || "";
     $("dob").value = s.dob || "";
     $("gender").value = s.gender || "";
-    $("studentClass").value = s.className || "";
 
+    $("studentClass").value = s.className || "";
     updateStudentSections();
     $("studentSection").value = s.section || "";
 
@@ -761,25 +831,40 @@ $("studentsTable").addEventListener("click", async e => {
     $("studentSection").scrollIntoView({behavior:"smooth"});
   }
 
-  if (deleteId) await deleteStudent(deleteId);
+  if(deleteButton) {
+    await deleteStudent(deleteButton.dataset.deleteStudent);
+  }
 });
 
 async function deleteStudent(id) {
-  const s = students.find(item => item.id === id);
-  if (!s) return;
+  if(!isAdmin()) return;
 
-  if (!confirm('Kya "' + (s.studentName || "student") + '" ka record delete karna hai?')) return;
+  const s = students.find(item => item.id === id);
+  if(!s) return;
+
+  if(!confirm(
+    'Kya student "' + (s.studentName || "") +
+    '" ka record delete karna hai?'
+  )) return;
 
   try {
     await db.collection("Students").doc(id).delete();
+
+    if($("studentDocId").value === id) {
+      resetStudentForm();
+    }
+
     await loadStudents();
-    showMessage("appMessage", "Student record delete ho gaya.", "ok");
-  } catch (error) {
-    showMessage("appMessage", "Student delete nahi hua: " + friendlyError(error), "error");
+
+    showMessage("appMessage","Student record delete ho gaya.","ok");
+  } catch(error) {
+    showMessage("appMessage","Student delete nahi hua: "+friendlyError(error),"error");
   }
 }
 
-$("cancelStudentBtn").addEventListener("click", resetStudentForm);
+/* RESET STUDENT FORM */
+
+$("cancelStudentBtn").addEventListener("click",resetStudentForm);
 
 function resetStudentForm() {
   $("studentForm").reset();
@@ -787,8 +872,11 @@ function resetStudentForm() {
   $("studentFormTitle").textContent = "Student Registration";
   $("saveStudentBtn").textContent = "Save Student";
   $("cancelStudentBtn").classList.add("hidden");
+  $("studentSection").innerHTML =
+    '<option value="">Select Section</option>';
   updateStudentSections();
 }
 </script>
+
 </body>
 </html>
