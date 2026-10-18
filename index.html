@@ -3,190 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Moon Star Public High School</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f0f5fb;
-  color: #243247;
-}
-
-header {
-  background: #123b70;
-  color: white;
-  padding: 20px 12px;
-  text-align: center;
-}
-
-header h1 {
-  margin: 0 0 8px;
-  font-size: 23px;
-}
-
-header p {
-  margin: 4px 0;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 20px auto;
-  padding: 12px;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 3px 12px #00000012;
-}
-
-h2 {
-  margin-top: 0;
-  color: #123b70;
-  font-size: 21px;
-}
-
-label {
-  display: block;
-  margin: 12px 0 5px;
-  font-weight: bold;
-}
-
-input,
-select,
-button {
-  font: inherit;
-}
-
-input,
-select {
-  width: 100%;
-  padding: 11px;
-  border: 1px solid #cbd5e1;
-  border-radius: 7px;
-  background: white;
-}
-
-button {
-  border: none;
-  border-radius: 7px;
-  padding: 11px 15px;
-  margin-top: 12px;
-  cursor: pointer;
-  background: #1769aa;
-  color: white;
-  font-weight: bold;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-.danger {
-  background: #c62828;
-}
-
-.secondary {
-  background: #526477;
-}
-
-.success {
-  background: #218838;
-}
-
-.full {
-  width: 100%;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.status {
-  padding: 11px;
-  margin: 12px 0;
-  border-radius: 7px;
-  background: #e8f2ff;
-  overflow-wrap: anywhere;
-}
-
-.status.error {
-  background: #ffebee;
-  color: #b71c1c;
-}
-
-.status.ok {
-  background: #e8f5e9;
-  color: #1b5e20;
-}
-
-.table-wrap {
-  overflow-x: auto;
-  width: 100%;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 12px;
-  min-width: 650px;
-}
-
-th,
-td {
-  border: 1px solid #d9e1ea;
-  padding: 10px;
-  text-align: left;
-}
-
-th {
-  background: #e7eff9;
-}
-
-.small-btn {
-  padding: 7px 10px;
-  margin: 3px;
-  font-size: 13px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #64748b;
-}
-
-@media(max-width:600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    padding: 14px;
-  }
-
-  header h1 {
-    font-size: 20px;
-  }
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f0f5fb;color:#243247}
+header{background:#123b70;color:white;padding:20px 12px;text-align:center}
+header h1{margin:0 0 8px;font-size:23px}
+header p{margin:4px 0}
+.container{max-width:1100px;margin:20px auto;padding:12px}
+.card{background:white;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 3px 12px #00000012}
+h2{margin-top:0;color:#123b70;font-size:21px}
+label{display:block;margin:12px 0 5px;font-weight:bold}
+input,select,button{font:inherit}
+input,select{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:7px;background:white}
+button{border:none;border-radius:7px;padding:11px 15px;margin-top:12px;cursor:pointer;background:#1769aa;color:white;font-weight:bold}
+button:disabled{opacity:.6;cursor:not-allowed}
+.danger{background:#c62828}
+.secondary{background:#526477}
+.full{width:100%}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.hidden{display:none!important}
+.status{padding:11px;margin:12px 0;border-radius:7px;background:#e8f2ff;overflow-wrap:anywhere}
+.status.error{background:#ffebee;color:#b71c1c}
+.status.ok{background:#e8f5e9;color:#1b5e20}
+.table-wrap{overflow-x:auto;width:100%}
+table{border-collapse:collapse;width:100%;margin-top:12px;min-width:650px}
+th,td{border:1px solid #d9e1ea;padding:10px;text-align:left}
+th{background:#e7eff9}
+.small-btn{padding:7px 10px;margin:3px;font-size:13px}
+footer{text-align:center;padding:20px;color:#64748b}
+@media(max-width:600px){
+ .grid{grid-template-columns:1fr}
+ .card{padding:14px}
+ header h1{font-size:20px}
 }
 </style>
 </head>
 
 <body>
-
 <header>
   <h1>Moon Star Public High School</h1>
   <p>Khanwahan</p>
@@ -200,16 +55,12 @@ footer {
     <h2>Login</h2>
 
     <label>Email Address</label>
-    <input id="email" type="email"
-           placeholder="Enter email" autocomplete="username">
+    <input id="email" type="email" placeholder="Enter email" autocomplete="username">
 
     <label>Password</label>
-    <input id="password" type="password"
-           placeholder="Enter password"
-           autocomplete="current-password">
+    <input id="password" type="password" placeholder="Enter password" autocomplete="current-password">
 
     <button id="loginBtn" class="full">Login</button>
-
     <div id="loginMessage" class="status hidden"></div>
   </section>
 
@@ -217,110 +68,65 @@ footer {
   <section id="dashboard" class="hidden">
 
     <div class="card">
-      <div class="grid">
-        <div>
-          <h2>Dashboard</h2>
-          <div id="userInfo"></div>
-        </div>
-
-        <div>
-          <button id="refreshBtn" class="full">
-            Refresh Records
-          </button>
-
-          <button id="logoutBtn" class="danger full">
-            Logout
-          </button>
-        </div>
-      </div>
-
+      <h2>Dashboard</h2>
+      <div id="userInfo"></div>
+      <button id="refreshBtn" class="full">Refresh Records</button>
+      <button id="logoutBtn" class="danger full">Logout</button>
       <div id="appMessage" class="status hidden"></div>
     </div>
 
     <!-- CLASS MANAGEMENT -->
     <section id="classSection" class="card hidden">
       <h2>Class Management</h2>
-
-      <p>
-        Class ka naam likhein aur sections comma se alag karein.
-        Misal: Nursery aur sections A, B.
-      </p>
+      <p>Class ka naam aur sections comma se alag likhein. Misal: Nursery | A, B</p>
 
       <form id="classForm">
-
         <input type="hidden" id="classDocId">
 
         <label>Class Name</label>
-        <input id="className"
-               placeholder="Misal: Nursery, KG, Class 1"
-               required>
+        <input id="className" placeholder="Nursery, KG, Class 1" required>
 
         <label>Sections</label>
-        <input id="sectionNames"
-               placeholder="Misal: A, B, C"
-               required>
+        <input id="sectionNames" placeholder="A, B, C" required>
 
-        <button type="submit" id="saveClassBtn">
-          Save Class
-        </button>
-
-        <button type="button" id="cancelClassBtn"
-                class="secondary hidden">
-          Cancel Edit
-        </button>
+        <button type="submit" id="saveClassBtn">Save Class</button>
+        <button type="button" id="cancelClassBtn" class="secondary hidden">Cancel Edit</button>
       </form>
 
       <h3>Available Classes</h3>
-
       <div class="table-wrap">
         <table>
           <thead>
-            <tr>
-              <th>Class</th>
-              <th>Sections</th>
-              <th>Actions</th>
-            </tr>
+            <tr><th>Class</th><th>Sections</th><th>Actions</th></tr>
           </thead>
           <tbody id="classesTable"></tbody>
         </table>
       </div>
 
-      <p>
-        Note: Class delete karne se pehle us class ke students
-        ko doosri class mein move karein. Students wale class
-        records hone par deletion roki jayegi.
-      </p>
+      <p>Students wali class delete nahi hogi. Pehle students ko doosri class mein move karein.</p>
     </section>
 
-    <!-- STUDENT FORM -->
+    <!-- STUDENT REGISTRATION: CLASS MANAGEMENT KE NEECHE -->
     <section id="studentSection" class="card hidden">
       <h2 id="studentFormTitle">Student Registration</h2>
 
       <form id="studentForm">
-
         <input type="hidden" id="studentDocId">
 
         <div class="grid">
-
           <div>
             <label>GR Number</label>
-            <input id="grNumber"
-                   placeholder="Enter GR Number"
-                   required>
+            <input id="grNumber" placeholder="Enter GR Number" required>
           </div>
 
           <div>
             <label>Student Name</label>
-            <input id="studentName"
-                   placeholder="Student name"
-                   required>
+            <input id="studentName" placeholder="Student name" required>
           </div>
 
           <div>
             <label>Father Name</label>
-            <input id="fatherName"
-                   placeholder="Father name"
-                   required>
+            <input id="fatherName" placeholder="Father name" required>
           </div>
 
           <div>
@@ -350,31 +156,21 @@ footer {
               <option value="">Select Section</option>
             </select>
           </div>
-
         </div>
 
-        <button type="submit" id="saveStudentBtn">
-          Save Student
-        </button>
-
-        <button type="button" id="cancelStudentBtn"
-                class="secondary hidden">
-          Cancel Edit
-        </button>
-
+        <button type="submit" id="saveStudentBtn">Save Student</button>
+        <button type="button" id="cancelStudentBtn" class="secondary hidden">Cancel Edit</button>
       </form>
     </section>
 
-    <!-- STUDENT LIST -->
+    <!-- STUDENT RECORDS -->
     <section class="card">
       <h2>Student Records</h2>
 
       <div class="grid">
-
         <div>
           <label>Search Student</label>
-          <input id="searchStudent"
-                 placeholder="Search name or GR number">
+          <input id="searchStudent" placeholder="Search name or GR number">
         </div>
 
         <div>
@@ -390,7 +186,6 @@ footer {
             <option value="">All Sections</option>
           </select>
         </div>
-
       </div>
 
       <p id="studentCount">Students: 0</p>
@@ -409,7 +204,6 @@ footer {
               <th id="actionsHeading">Actions</th>
             </tr>
           </thead>
-
           <tbody id="studentsTable"></tbody>
         </table>
       </div>
@@ -418,18 +212,13 @@ footer {
   </section>
 </div>
 
-<footer>
-  Moon Star Public High School, Khanwahan
-</footer>
+<footer>Moon Star Public High School, Khanwahan</footer>
 
-<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
-/* FIREBASE CONFIG */
-
 const firebaseConfig = {
   apiKey: "AIzaSyDFiIQvhbbxoemkRZ3_DYzB4YHIWYGngkU",
   authDomain: "moon-star-face-attendance.firebaseapp.com",
@@ -452,6 +241,7 @@ let students = [];
 let loading = false;
 
 const $ = id => document.getElementById(id);
+const isAdmin = () => currentRole === "admin";
 
 function showMessage(id, message, type = "") {
   const el = $(id);
@@ -460,33 +250,34 @@ function showMessage(id, message, type = "") {
   if (type) el.classList.add(type);
 }
 
-function hideMessage(id) {
-  $(id).className = "status hidden";
-}
-
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, ch => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
+    "&":"&amp;", "<":"&lt;", ">":"&gt;",
+    '"':"&quot;", "'":"&#39;"
   })[ch]);
 }
 
-function isAdmin() {
-  return currentRole === "admin";
+function friendlyError(error) {
+  const code = error && error.code;
+  const messages = {
+    "auth/invalid-email":"Email address durust nahi hai.",
+    "auth/user-not-found":"Is email ka account nahi mila.",
+    "auth/wrong-password":"Password ghalat hai.",
+    "auth/invalid-credential":"Email ya password ghalat hai.",
+    "auth/too-many-requests":"Kuch der baad dobara koshish karein.",
+    "auth/network-request-failed":"Internet connection check karein.",
+    "permission-denied":"Firebase permission nahi mili. Security Rules check karein."
+  };
+  return messages[code] || (error && error.message) || "Koi error aaya hai.";
 }
 
 /* LOGIN */
-
 $("loginBtn").addEventListener("click", async () => {
   const email = $("email").value.trim();
   const password = $("password").value;
 
   if (!email || !password) {
-    showMessage("loginMessage",
-      "Email aur password dono likhein.", "error");
+    showMessage("loginMessage", "Email aur password likhein.", "error");
     return;
   }
 
@@ -496,8 +287,7 @@ $("loginBtn").addEventListener("click", async () => {
   try {
     await auth.signInWithEmailAndPassword(email, password);
   } catch (error) {
-    showMessage("loginMessage",
-      friendlyError(error), "error");
+    showMessage("loginMessage", friendlyError(error), "error");
   } finally {
     $("loginBtn").disabled = false;
   }
@@ -507,29 +297,7 @@ $("password").addEventListener("keydown", e => {
   if (e.key === "Enter") $("loginBtn").click();
 });
 
-function friendlyError(error) {
-  const code = error && error.code;
-
-  const messages = {
-    "auth/invalid-email": "Email address durust nahi hai.",
-    "auth/user-not-found": "Is email ka account nahi mila.",
-    "auth/wrong-password": "Password ghalat hai.",
-    "auth/invalid-credential": "Email ya password ghalat hai.",
-    "auth/too-many-requests":
-      "Bohat zyada attempts hue hain. Kuch der baad koshish karein.",
-    "auth/network-request-failed":
-      "Internet connection check karein.",
-    "permission-denied":
-      "Firebase permission nahi mili. Security Rules check karein."
-  };
-
-  return messages[code] ||
-    (error && error.message) ||
-    "Koi error aaya hai. Dobara koshish karein.";
-}
-
-/* AUTH STATE */
-
+/* LOGIN STATE AND ROLE */
 auth.onAuthStateChanged(async user => {
   currentUser = user;
 
@@ -541,63 +309,50 @@ auth.onAuthStateChanged(async user => {
   }
 
   try {
-    const userDoc = await db.collection("Users")
-      .doc(user.uid).get();
+    const userDoc = await db.collection("Users").doc(user.uid).get();
 
     if (!userDoc.exists) {
       await auth.signOut();
-      showMessage("loginMessage",
-        "Users collection mein is account ka role nahi mila.",
-        "error");
+      showMessage("loginMessage", "Users collection mein role record nahi mila.", "error");
       return;
     }
 
-    currentRole = String(userDoc.data().role || "")
-      .trim().toLowerCase();
+    currentRole = String(userDoc.data().role || "").trim().toLowerCase();
 
     if (!["admin", "principal"].includes(currentRole)) {
       await auth.signOut();
-      showMessage("loginMessage",
-        "Is account ka role admin ya principal hona chahiye.",
-        "error");
+      showMessage("loginMessage", "Account role admin ya principal hona chahiye.", "error");
       return;
     }
 
     $("loginCard").classList.add("hidden");
     $("dashboard").classList.remove("hidden");
-
-    $("userInfo").textContent =
-      "Logged in: " + user.email +
-      " | Role: " + currentRole.toUpperCase();
+    $("userInfo").textContent = "Logged in: " + user.email + " | Role: " + currentRole.toUpperCase();
 
     $("classSection").classList.toggle("hidden", !isAdmin());
+
+    /* Student form Admin ke liye hamesha visible */
     $("studentSection").classList.toggle("hidden", !isAdmin());
+
     $("actionsHeading").classList.toggle("hidden", !isAdmin());
 
     await refreshAll();
-
   } catch (error) {
-    showMessage("loginMessage",
-      "Account role load nahi hua: " + friendlyError(error),
-      "error");
+    showMessage("loginMessage", "Role load nahi hua: " + friendlyError(error), "error");
   }
 });
-
-/* LOGOUT */
 
 $("logoutBtn").addEventListener("click", async () => {
   try {
     await auth.signOut();
   } catch (error) {
-    showMessage("appMessage",
-      friendlyError(error), "error");
+    showMessage("appMessage", friendlyError(error), "error");
   }
 });
 
-/* REFRESH */
-
 $("refreshBtn").addEventListener("click", refreshAll);
 
+/* REFRESH DATA */
 async function refreshAll() {
   if (!currentUser || loading) return;
 
@@ -607,21 +362,15 @@ async function refreshAll() {
   try {
     await loadClasses();
     await loadStudents();
-
-    showMessage("appMessage",
-      "Records successfully load ho gaye.", "ok");
-
+    showMessage("appMessage", "Records successfully load ho gaye.", "ok");
   } catch (error) {
-    showMessage("appMessage",
-      "Records load nahi hue: " + friendlyError(error),
-      "error");
+    showMessage("appMessage", "Records load nahi hue: " + friendlyError(error), "error");
   } finally {
     loading = false;
   }
 }
 
 /* CLASS MANAGEMENT */
-
 async function loadClasses() {
   const snapshot = await db.collection("Classes").get();
 
@@ -630,54 +379,41 @@ async function loadClasses() {
     ...doc.data()
   }));
 
-  classes.sort((a, b) =>
-    String(a.name || "").localeCompare(String(b.name || ""))
-  );
+  classes.sort((a, b) => String(a.name || "").localeCompare(String(b.name || "")));
 
   renderClasses();
   populateClassDropdowns();
 }
 
 function normalizeSections(value) {
-  return [...new Set(
-    value.split(",")
-      .map(s => s.trim())
-      .filter(Boolean)
-  )];
+  return [...new Set(value.split(",").map(s => s.trim()).filter(Boolean))];
 }
 
 $("classForm").addEventListener("submit", async e => {
   e.preventDefault();
-
   if (!isAdmin()) return;
 
   const name = $("className").value.trim();
   const sections = normalizeSections($("sectionNames").value);
   const docId = $("classDocId").value;
 
-  if (!name) {
-    showMessage("appMessage", "Class name likhein.", "error");
+  if (!name || !sections.length) {
+    showMessage("appMessage", "Class aur kam az kam ek section likhein.", "error");
     return;
   }
 
-  if (sections.length === 0) {
-    showMessage("appMessage",
-      "Kam az kam ek section likhein.", "error");
+  const duplicate = classes.some(c =>
+    c.id !== docId &&
+    String(c.name || "").trim().toLowerCase() === name.toLowerCase()
+  );
+
+  if (duplicate) {
+    showMessage("appMessage", "Yeh class pehle se mojood hai.", "error");
     return;
   }
 
   try {
-    const duplicate = classes.some(c =>
-      c.id !== docId &&
-      String(c.name || "").trim().toLowerCase() ===
-      name.toLowerCase()
-    );
-
-    if (duplicate) {
-      showMessage("appMessage",
-        "Is naam ki class pehle se mojood hai.", "error");
-      return;
-    }
+    $("saveClassBtn").disabled = true;
 
     const data = {
       name,
@@ -688,21 +424,17 @@ $("classForm").addEventListener("submit", async e => {
     if (docId) {
       await db.collection("Classes").doc(docId).update(data);
     } else {
-      data.createdAt =
-        firebase.firestore.FieldValue.serverTimestamp();
-
+      data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
       await db.collection("Classes").add(data);
     }
 
     resetClassForm();
     await loadClasses();
-
-    showMessage("appMessage",
-      "Class successfully save ho gayi.", "ok");
-
+    showMessage("appMessage", "Class successfully save ho gayi.", "ok");
   } catch (error) {
-    showMessage("appMessage",
-      "Class save nahi hui: " + friendlyError(error), "error");
+    showMessage("appMessage", "Class save nahi hui: " + friendlyError(error), "error");
+  } finally {
+    $("saveClassBtn").disabled = false;
   }
 });
 
@@ -710,24 +442,17 @@ function renderClasses() {
   const tbody = $("classesTable");
 
   if (!classes.length) {
-    tbody.innerHTML =
-      '<tr><td colspan="3">Abhi koi class add nahi hui. Upar se class add karein.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="3">Abhi koi class add nahi hui.</td></tr>';
     return;
   }
 
   tbody.innerHTML = classes.map(c => `
     <tr>
       <td>${escapeHTML(c.name || "")}</td>
-      <td>${escapeHTML((c.sections || []).join(", "))}</td>
+      <td>${escapeHTML((Array.isArray(c.sections) ? c.sections : []).join(", "))}</td>
       <td>
-        <button class="small-btn"
-          data-edit-class="${escapeHTML(c.id)}">
-          Edit
-        </button>
-        <button class="small-btn danger"
-          data-delete-class="${escapeHTML(c.id)}">
-          Delete
-        </button>
+        <button class="small-btn" data-edit-class="${escapeHTML(c.id)}">Edit</button>
+        <button class="small-btn danger" data-delete-class="${escapeHTML(c.id)}">Delete</button>
       </td>
     </tr>
   `).join("");
@@ -746,57 +471,34 @@ $("classesTable").addEventListener("click", async e => {
     $("sectionNames").value = (c.sections || []).join(", ");
     $("saveClassBtn").textContent = "Update Class";
     $("cancelClassBtn").classList.remove("hidden");
-
-    $("classSection").scrollIntoView({behavior: "smooth"});
+    $("classSection").scrollIntoView({behavior:"smooth"});
   }
 
-  if (deleteId) {
-    await deleteClass(deleteId);
-  }
+  if (deleteId) await deleteClass(deleteId);
 });
 
 async function deleteClass(id) {
-  if (!isAdmin()) return;
-
   const c = classes.find(item => item.id === id);
-  if (!c) return;
+  if (!c || !isAdmin()) return;
 
-  const className = String(c.name || "");
-
-  if (!confirm(
-    'Kya aap "' + className +
-    '" class delete karna chahte hain?'
-  )) return;
+  if (!confirm('Kya "' + c.name + '" class delete karni hai?')) return;
 
   try {
-    /*
-      Safety check: is class ke student records hon
-      to class delete nahi hogi.
-    */
     const snapshot = await db.collection("Students")
-      .where("className", "==", className)
-      .limit(1)
-      .get();
+      .where("className", "==", c.name)
+      .limit(1).get();
 
     if (!snapshot.empty) {
-      showMessage("appMessage",
-        "Is class mein student records hain. Pehle un students ko doosri class mein move karein.",
-        "error");
+      showMessage("appMessage", "Is class mein student record hai. Pehle student ki class change karein.", "error");
       return;
     }
 
     await db.collection("Classes").doc(id).delete();
-
     resetClassForm();
     await loadClasses();
-
-    showMessage("appMessage",
-      "Class delete ho gayi.", "ok");
-
+    showMessage("appMessage", "Class delete ho gayi.", "ok");
   } catch (error) {
-    showMessage("appMessage",
-      "Class delete nahi hui: " + friendlyError(error),
-      "error");
+    showMessage("appMessage", "Class delete nahi hui: " + friendlyError(error), "error");
   }
 }
 
@@ -809,36 +511,32 @@ function resetClassForm() {
   $("cancelClassBtn").classList.add("hidden");
 }
 
-/* DROPDOWNS */
-
+/* CLASS AND SECTION DROPDOWNS */
 function populateClassDropdowns() {
-  const previousStudentClass = $("studentClass").value;
-  const previousFilterClass = $("filterClass").value;
+  const oldStudentClass = $("studentClass").value;
+  const oldFilterClass = $("filterClass").value;
 
-  $("studentClass").innerHTML =
-    '<option value="">Select Class</option>';
-
-  $("filterClass").innerHTML =
-    '<option value="">All Classes</option>';
+  $("studentClass").innerHTML = '<option value="">Select Class</option>';
+  $("filterClass").innerHTML = '<option value="">All Classes</option>';
 
   classes.forEach(c => {
-    const option1 = document.createElement("option");
-    option1.value = c.name;
-    option1.textContent = c.name;
-    $("studentClass").appendChild(option1);
+    const o1 = document.createElement("option");
+    o1.value = c.name;
+    o1.textContent = c.name;
+    $("studentClass").appendChild(o1);
 
-    const option2 = document.createElement("option");
-    option2.value = c.name;
-    option2.textContent = c.name;
-    $("filterClass").appendChild(option2);
+    const o2 = document.createElement("option");
+    o2.value = c.name;
+    o2.textContent = c.name;
+    $("filterClass").appendChild(o2);
   });
 
-  if (classes.some(c => c.name === previousStudentClass)) {
-    $("studentClass").value = previousStudentClass;
+  if (classes.some(c => c.name === oldStudentClass)) {
+    $("studentClass").value = oldStudentClass;
   }
 
-  if (classes.some(c => c.name === previousFilterClass)) {
-    $("filterClass").value = previousFilterClass;
+  if (classes.some(c => c.name === oldFilterClass)) {
+    $("filterClass").value = oldFilterClass;
   }
 
   updateStudentSections();
@@ -849,10 +547,9 @@ $("studentClass").addEventListener("change", updateStudentSections);
 
 function updateStudentSections() {
   const className = $("studentClass").value;
-  const previousSection = $("studentSection").value;
+  const oldSection = $("studentSection").value;
 
-  $("studentSection").innerHTML =
-    '<option value="">Select Section</option>';
+  $("studentSection").innerHTML = '<option value="">Select Section</option>';
 
   const c = classes.find(item => item.name === className);
 
@@ -865,20 +562,23 @@ function updateStudentSections() {
     });
   }
 
-  if (c && (c.sections || []).includes(previousSection)) {
-    $("studentSection").value = previousSection;
+  if (c && (c.sections || []).includes(oldSection)) {
+    $("studentSection").value = oldSection;
   }
 }
 
 $("filterClass").addEventListener("change", updateFilterSections);
+$("filterSection").addEventListener("change", renderStudents);
+$("searchStudent").addEventListener("input", renderStudents);
 
 function updateFilterSections() {
   const className = $("filterClass").value;
+  const sectionSelect = $("filterSection");
+  const oldSection = sectionSelect.value;
 
-  $("filterSection").innerHTML =
-    '<option value="">All Sections</option>';
+  sectionSelect.innerHTML = '<option value="">All Sections</option>';
 
-  let sectionSet = new Set();
+  const sectionSet = new Set();
 
   if (className) {
     const c = classes.find(item => item.name === className);
@@ -893,14 +593,17 @@ function updateFilterSections() {
     const option = document.createElement("option");
     option.value = section;
     option.textContent = section;
-    $("filterSection").appendChild(option);
+    sectionSelect.appendChild(option);
   });
+
+  if ([...sectionSet].includes(oldSection)) {
+    sectionSelect.value = oldSection;
+  }
 
   renderStudents();
 }
 
-/* STUDENT MANAGEMENT */
-
+/* STUDENT RECORDS */
 async function loadStudents() {
   const snapshot = await db.collection("Students").get();
 
@@ -910,18 +613,16 @@ async function loadStudents() {
   }));
 
   students.sort((a, b) =>
-    String(a.studentName || "").localeCompare(
-      String(b.studentName || "")
-    )
+    String(a.studentName || "").localeCompare(String(b.studentName || ""))
   );
 
   updateFilterSections();
   renderStudents();
 }
 
+/* SAVE / UPDATE STUDENT */
 $("studentForm").addEventListener("submit", async e => {
   e.preventDefault();
-
   if (!isAdmin()) return;
 
   const docId = $("studentDocId").value;
@@ -933,31 +634,26 @@ $("studentForm").addEventListener("submit", async e => {
   const className = $("studentClass").value;
   const section = $("studentSection").value;
 
-  if (!grNumber || !studentName || !fatherName ||
-      !className || !section) {
-    showMessage("appMessage",
-      "Zaroori fields complete karein.", "error");
+  if (!grNumber || !studentName || !fatherName || !className || !section) {
+    showMessage("appMessage", "Zaroori fields complete karein.", "error");
     return;
   }
 
-  const classExists = classes.some(c =>
-    c.name === className &&
-    (c.sections || []).includes(section)
+  const selectedClass = classes.find(c =>
+    c.name === className && (c.sections || []).includes(section)
   );
 
-  if (!classExists) {
-    showMessage("appMessage",
-      "Selected class aur section check karein.", "error");
+  if (!selectedClass) {
+    showMessage("appMessage", "Class aur section dobara select karein.", "error");
     return;
   }
 
   const duplicateGR = students.some(s =>
-    s.grNumber === grNumber && s.id !== docId
+    String(s.grNumber || "").trim() === grNumber && s.id !== docId
   );
 
   if (duplicateGR) {
-    showMessage("appMessage",
-      "Yeh GR Number kisi aur student ka hai.", "error");
+    showMessage("appMessage", "Yeh GR Number pehle se mojood hai.", "error");
     return;
   }
 
@@ -976,52 +672,34 @@ $("studentForm").addEventListener("submit", async e => {
     $("saveStudentBtn").disabled = true;
 
     if (docId) {
-      /*
-        Update existing document: purane document ka ID
-        wahi rahega, is liye naya duplicate record nahi banega.
-      */
       await db.collection("Students").doc(docId).update(data);
     } else {
-      data.createdAt =
-        firebase.firestore.FieldValue.serverTimestamp();
-
+      data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
       await db.collection("Students").add(data);
     }
 
     resetStudentForm();
     await loadStudents();
 
-    showMessage("appMessage",
-      docId
-        ? "Student record update ho gaya."
-        : "Student Firebase mein save ho gaya.",
-      "ok");
-
+    showMessage("appMessage", docId ? "Student update ho gaya." : "Student Firebase mein save ho gaya.", "ok");
   } catch (error) {
-    showMessage("appMessage",
-      "Student save nahi hua: " + friendlyError(error),
-      "error");
+    showMessage("appMessage", "Student save nahi hua: " + friendlyError(error), "error");
   } finally {
     $("saveStudentBtn").disabled = false;
   }
 });
 
+/* SHOW STUDENT TABLE */
 function renderStudents() {
   const tbody = $("studentsTable");
-
-  const search = $("searchStudent").value
-    .trim().toLowerCase();
-
+  const search = $("searchStudent").value.trim().toLowerCase();
   const classFilter = $("filterClass").value;
   const sectionFilter = $("filterSection").value;
 
   const filtered = students.filter(s => {
     const text = [
-      s.grNumber,
-      s.studentName,
-      s.fatherName,
-      s.className,
-      s.section
+      s.grNumber, s.studentName, s.fatherName,
+      s.className, s.section
     ].join(" ").toLowerCase();
 
     return text.includes(search) &&
@@ -1029,12 +707,10 @@ function renderStudents() {
       (!sectionFilter || s.section === sectionFilter);
   });
 
-  $("studentCount").textContent =
-    "Students: " + filtered.length;
+  $("studentCount").textContent = "Students: " + filtered.length;
 
   if (!filtered.length) {
-    tbody.innerHTML =
-      '<tr><td colspan="8">Koi student record nahi mila.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="8">Koi student record nahi mila.</td></tr>';
     return;
   }
 
@@ -1049,25 +725,19 @@ function renderStudents() {
       <td>${escapeHTML(s.section || "")}</td>
       ${isAdmin() ? `
         <td>
-          <button class="small-btn"
-            data-edit-student="${escapeHTML(s.id)}">
-            Edit
-          </button>
-          <button class="small-btn danger"
-            data-delete-student="${escapeHTML(s.id)}">
-            Delete
-          </button>
-        </td>
-      ` : ""}
+          <button class="small-btn" data-edit-student="${escapeHTML(s.id)}">Edit</button>
+          <button class="small-btn danger" data-delete-student="${escapeHTML(s.id)}">Delete</button>
+        </td>` : ""}
     </tr>
   `).join("");
 }
 
+/* EDIT / DELETE STUDENT */
 $("studentsTable").addEventListener("click", async e => {
+  if (!isAdmin()) return;
+
   const editId = e.target.dataset.editStudent;
   const deleteId = e.target.dataset.deleteStudent;
-
-  if (!isAdmin()) return;
 
   if (editId) {
     const s = students.find(item => item.id === editId);
@@ -1079,8 +749,8 @@ $("studentsTable").addEventListener("click", async e => {
     $("fatherName").value = s.fatherName || "";
     $("dob").value = s.dob || "";
     $("gender").value = s.gender || "";
-
     $("studentClass").value = s.className || "";
+
     updateStudentSections();
     $("studentSection").value = s.section || "";
 
@@ -1088,35 +758,24 @@ $("studentsTable").addEventListener("click", async e => {
     $("saveStudentBtn").textContent = "Update Student";
     $("cancelStudentBtn").classList.remove("hidden");
 
-    $("studentSection").scrollIntoView({behavior: "smooth"});
+    $("studentSection").scrollIntoView({behavior:"smooth"});
   }
 
-  if (deleteId) {
-    await deleteStudent(deleteId);
-  }
+  if (deleteId) await deleteStudent(deleteId);
 });
 
 async function deleteStudent(id) {
   const s = students.find(item => item.id === id);
   if (!s) return;
 
-  if (!confirm(
-    "Kya aap " + (s.studentName || "is student") +
-    " ka record delete karna chahte hain?"
-  )) return;
+  if (!confirm('Kya "' + (s.studentName || "student") + '" ka record delete karna hai?')) return;
 
   try {
     await db.collection("Students").doc(id).delete();
-
     await loadStudents();
-
-    showMessage("appMessage",
-      "Student record delete ho gaya.", "ok");
-
+    showMessage("appMessage", "Student record delete ho gaya.", "ok");
   } catch (error) {
-    showMessage("appMessage",
-      "Student delete nahi hua: " + friendlyError(error),
-      "error");
+    showMessage("appMessage", "Student delete nahi hua: " + friendlyError(error), "error");
   }
 }
 
@@ -1130,12 +789,6 @@ function resetStudentForm() {
   $("cancelStudentBtn").classList.add("hidden");
   updateStudentSections();
 }
-
-/* SEARCH & FILTER */
-
-$("searchStudent").addEventListener("input", renderStudents);
-$("filterSection").addEventListener("change", renderStudents);
-
 </script>
 </body>
 </html>
