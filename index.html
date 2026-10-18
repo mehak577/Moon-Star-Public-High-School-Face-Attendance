@@ -6,108 +6,117 @@
 <title>Moon Star Face Attendance</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f0f4f8;
+  color:#243047;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f0f4f8;
-  color: #243047;
+header{
+  background:#087f70;
+  color:white;
+  text-align:center;
+  padding:22px 12px;
 }
 
-header {
-  background: #087f70;
-  color: white;
-  text-align: center;
-  padding: 22px 12px;
+header h2{margin:0 0 8px}
+header p{margin:6px 0}
+
+.container{
+  max-width:700px;
+  margin:25px auto;
+  padding:12px;
 }
 
-header h2 {
-  margin: 0 0 8px;
+.card{
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 3px 14px #0001;
+  margin-bottom:20px;
 }
 
-header p {
-  margin: 6px 0;
+h3{text-align:center}
+
+label{
+  display:block;
+  margin:14px 0 6px;
+  font-weight:bold;
 }
 
-.container {
-  max-width: 480px;
-  margin: 35px auto;
-  padding: 15px;
+input,select{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccd5df;
+  border-radius:8px;
+  font-size:16px;
+  background:white;
 }
 
-.card {
-  background: white;
-  padding: 24px;
-  border-radius: 14px;
-  box-shadow: 0 3px 14px #0001;
+button{
+  padding:12px;
+  margin-top:14px;
+  border:0;
+  border-radius:8px;
+  background:#087f70;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-h3 {
-  text-align: center;
+button:disabled{opacity:.6}
+
+.full{width:100%}
+.logout,.delete{background:#b42332}
+.secondary{background:#52647a}
+.edit{background:#1769aa}
+
+.hidden{display:none!important}
+
+.info{
+  background:#e5f5f1;
+  padding:14px;
+  border-radius:8px;
+  line-height:1.8;
+  overflow-wrap:anywhere;
 }
 
-label {
-  display: block;
-  margin: 15px 0 7px;
-  font-weight: bold;
+.message{
+  padding:12px;
+  margin-top:12px;
+  border-radius:8px;
+  overflow-wrap:anywhere;
 }
 
-input {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #ccd5df;
-  border-radius: 8px;
-  font-size: 16px;
+.error{background:#fee2e2;color:#991b1b}
+.success{background:#dcfce7;color:#166534}
+
+.student{
+  border:1px solid #d8e0e8;
+  border-radius:10px;
+  padding:14px;
+  margin-top:12px;
+  overflow-wrap:anywhere;
 }
 
-button {
-  width: 100%;
-  padding: 13px;
-  margin-top: 18px;
-  border: 0;
-  border-radius: 8px;
-  background: #087f70;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
+.student p{margin:7px 0}
+
+.actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
 }
 
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
+.actions button{flex:1;min-width:100px}
 
-#message {
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 8px;
-  overflow-wrap: anywhere;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.info {
-  background: #e5f5f1;
-  padding: 14px;
-  border-radius: 8px;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
-}
-
-.logout {
-  background: #b42332;
-}
-
-footer {
-  text-align: center;
-  color: #687386;
-  padding: 15px;
+footer{
+  text-align:center;
+  color:#687386;
+  padding:15px;
 }
 </style>
 </head>
@@ -122,79 +131,134 @@ footer {
 
 <main class="container">
 
-  <!-- LOGIN FORM -->
+  <!-- LOGIN -->
   <section class="card" id="loginCard">
-
     <h3>🔐 Login</h3>
 
     <form id="loginForm">
-
       <label for="email">Email Address</label>
-      <input
-        id="email"
-        type="email"
-        placeholder="Enter your email"
-        autocomplete="username"
-        required
-      >
+      <input id="email" type="email"
+             autocomplete="username" required>
 
       <label for="password">Password</label>
-      <input
-        id="password"
-        type="password"
-        placeholder="Enter your password"
-        autocomplete="current-password"
-        required
-      >
+      <input id="password" type="password"
+             autocomplete="current-password" required>
 
-      <button type="submit" id="loginButton">
+      <button class="full" type="submit" id="loginButton">
         Login
       </button>
-
     </form>
 
-    <div
-      id="message"
-      class="hidden"
-      role="status"
-      aria-live="polite"
-    ></div>
-
+    <div id="loginMessage" aria-live="polite"></div>
   </section>
 
   <!-- DASHBOARD -->
   <section class="card hidden" id="dashboard">
-
     <h3>✅ Login Successful</h3>
 
     <div class="info">
-
-      <strong>School:</strong>
-      Moon Star Public High School
-      <br>
-
-      <strong>Location:</strong>
-      Khanwahan
-      <br>
-
+      <strong>School:</strong> Moon Star Public High School<br>
+      <strong>Location:</strong> Khanwahan<br>
       <strong>Logged in as:</strong>
-      <span id="userEmail"></span>
-      <br>
-
+      <span id="userEmail"></span><br>
       <strong>Role:</strong>
-      <span id="userRole">Checking...</span>
-      <br><br>
-
-      <span id="dashboardMessage">
-        Login successful. Attendance features are not yet connected.
-      </span>
-
+      <span id="userRole">Checking...</span><br>
+      <span id="dashboardMessage"></span>
     </div>
 
-    <button class="logout" id="logoutButton">
+    <button class="logout full" id="logoutButton">
       Logout
     </button>
+  </section>
 
+  <!-- STUDENT FORM: ADMIN ONLY -->
+  <section class="card hidden" id="studentFormCard">
+    <h3 id="formHeading">➕ Student Registration</h3>
+
+    <form id="studentForm">
+
+      <label for="grNumber">GR Number</label>
+      <input id="grNumber" required maxlength="40">
+
+      <label for="studentName">Student Name</label>
+      <input id="studentName" required maxlength="100">
+
+      <label for="fatherName">Father Name</label>
+      <input id="fatherName" required maxlength="100">
+
+      <label for="dob">Date of Birth</label>
+      <input id="dob" type="date" required>
+
+      <label for="gender">Gender</label>
+      <select id="gender" required>
+        <option value="">Select Gender</option>
+        <option value="Boy">Boy</option>
+        <option value="Girl">Girl</option>
+      </select>
+
+      <label for="className">Class</label>
+      <select id="className" required>
+        <option value="">Select Class</option>
+        <option>Nursery</option>
+        <option>KG</option>
+        <option>Class 1</option>
+        <option>Class 2</option>
+        <option>Class 3</option>
+        <option>Class 4</option>
+        <option>Class 5</option>
+        <option>Class 6</option>
+        <option>Class 7</option>
+        <option>Class 8</option>
+        <option>Class 9</option>
+        <option>Class 10</option>
+      </select>
+
+      <label for="section">Section</label>
+      <input id="section" required maxlength="30"
+             placeholder="Example: A">
+
+      <button class="full" type="submit" id="saveButton">
+        Save Student
+      </button>
+
+      <button class="secondary full hidden"
+              type="button" id="cancelEditButton">
+        Cancel Edit
+      </button>
+
+    </form>
+
+    <div id="formMessage" aria-live="polite"></div>
+  </section>
+
+  <!-- STUDENT LIST -->
+  <section class="card hidden" id="studentListCard">
+    <h3>📚 Student Records</h3>
+
+    <label for="searchStudent">Search Student</label>
+    <input id="searchStudent"
+           placeholder="Search by GR number or name">
+
+    <label for="filterClass">Filter by Class</label>
+    <select id="filterClass">
+      <option value="">All Classes</option>
+      <option>Nursery</option>
+      <option>KG</option>
+      <option>Class 1</option>
+      <option>Class 2</option>
+      <option>Class 3</option>
+      <option>Class 4</option>
+      <option>Class 5</option>
+      <option>Class 6</option>
+      <option>Class 7</option>
+      <option>Class 8</option>
+      <option>Class 9</option>
+      <option>Class 10</option>
+    </select>
+
+    <p id="studentCount"></p>
+    <div id="studentList">Loading records...</div>
+    <div id="listMessage" aria-live="polite"></div>
   </section>
 
 </main>
@@ -206,189 +270,390 @@ footer {
 <!-- FIREBASE LIBRARIES -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
-(function () {
+(function(){
 
-  const message = document.getElementById("message");
-  const button = document.getElementById("loginButton");
-  const form = document.getElementById("loginForm");
-  const loginCard = document.getElementById("loginCard");
-  const dashboard = document.getElementById("dashboard");
+  const $ = id => document.getElementById(id);
 
-  function showMessage(text) {
-    message.textContent = text;
-    message.classList.remove("hidden");
+  const firebaseConfig = {
+    apiKey: "AIzaSyDFiIQvhbbxoemkRZ3_DYzB4YHIWYGngkU",
+    authDomain: "moon-star-face-attendance.firebaseapp.com",
+    projectId: "moon-star-face-attendance",
+    storageBucket: "moon-star-face-attendance.firebasestorage.app",
+    messagingSenderId: "702855028449",
+    appId: "1:702855028449:web:cc0306a587a3581a0",
+    measurementId: "G-C6X4FG0FB4"
+  };
+
+  let auth;
+  let db;
+  let currentUser = null;
+  let currentRole = "";
+  let editingId = null;
+  let studentCache = [];
+
+  function message(id,text,type){
+    const box = $(id);
+    box.textContent = text;
+    box.className = "message " + (type || "");
   }
 
-  function hideMessage() {
-    message.textContent = "";
-    message.classList.add("hidden");
+  function clearMessage(id){
+    $(id).textContent = "";
+    $(id).className = "";
+  }
+
+  function showLogin(){
+    $("loginCard").classList.remove("hidden");
+    $("dashboard").classList.add("hidden");
+    $("studentFormCard").classList.add("hidden");
+    $("studentListCard").classList.add("hidden");
+  }
+
+  function hideAllSections(){
+    $("loginCard").classList.add("hidden");
+    $("dashboard").classList.add("hidden");
+    $("studentFormCard").classList.add("hidden");
+    $("studentListCard").classList.add("hidden");
+  }
+
+  function resetStudentForm(){
+    editingId = null;
+    $("studentForm").reset();
+    $("formHeading").textContent = "➕ Student Registration";
+    $("saveButton").textContent = "Save Student";
+    $("cancelEditButton").classList.add("hidden");
+    clearMessage("formMessage");
+  }
+
+  function safeText(value){
+    return value == null ? "" : String(value);
   }
 
   try {
-
-    if (!window.firebase) {
-      showMessage(
-        "Firebase load nahi hua. Internet check karein aur page refresh karein."
-      );
+    if(!window.firebase){
+      message("loginMessage",
+        "Firebase load nahi hua. Internet check karein.","error");
       return;
     }
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyDFiIQvhbbxoemkRZ3_DYzB4YHIWYGngkU",
-      authDomain: "moon-star-face-attendance.firebaseapp.com",
-      projectId: "moon-star-face-attendance",
-      storageBucket: "moon-star-face-attendance.firebasestorage.app",
-      messagingSenderId: "702855028449",
-      appId: "1:702855028449:web:cc0306a587a3581a98e1a0",
-      measurementId: "G-C6X4FG0FB4"
-    };
-
-    if (!firebase.apps.length) {
+    if(!firebase.apps.length){
       firebase.initializeApp(firebaseConfig);
     }
 
-    const auth = firebase.auth();
+    auth = firebase.auth();
+    db = firebase.firestore();
 
-    // Login state check
-    auth.onAuthStateChanged(
-      async function (user) {
+  } catch(error) {
+    message("loginMessage",
+      "Firebase setup error: " + error.message,"error");
+    return;
+  }
 
-        if (user) {
+  // LOGIN
+  $("loginForm").addEventListener("submit",async function(e){
+    e.preventDefault();
+    clearMessage("loginMessage");
 
-          loginCard.classList.add("hidden");
-          dashboard.classList.remove("hidden");
+    $("loginButton").disabled = true;
+    $("loginButton").textContent = "Logging in...";
 
-          document.getElementById("userEmail").textContent =
-            user.email || "Authenticated user";
+    try{
+      await auth.signInWithEmailAndPassword(
+        $("email").value.trim(),
+        $("password").value
+      );
+    }catch(error){
+      const errors = {
+        "auth/invalid-credential":"Email ya password ghalat hai.",
+        "auth/user-not-found":"Ye email Firebase mein nahi mila.",
+        "auth/wrong-password":"Password ghalat hai.",
+        "auth/invalid-email":"Email ka format check karein.",
+        "auth/too-many-requests":"Kuch der baad dobara koshish karein.",
+        "auth/network-request-failed":"Internet connection check karein.",
+        "auth/unauthorized-domain":"Firebase Authorized Domains check karein.",
+        "auth/operation-not-allowed":"Email/Password login enable karein."
+      };
 
-          document.getElementById("userRole").textContent =
-            "Not configured";
+      message("loginMessage",
+        errors[error.code] || ("Login error: " + error.message),
+        "error");
+    }finally{
+      $("loginButton").disabled = false;
+      $("loginButton").textContent = "Login";
+    }
+  });
 
-          document.getElementById("dashboardMessage").textContent =
-            "Login successful. Student registration and attendance features are not yet connected.";
+  // ROLE CHECK
+  auth.onAuthStateChanged(async function(user){
 
-        } else {
+    currentUser = user;
+    currentRole = "";
+    studentCache = [];
+    resetStudentForm();
 
-          loginCard.classList.remove("hidden");
-          dashboard.classList.add("hidden");
+    if(!user){
+      showLogin();
+      $("userRole").textContent = "Not logged in";
+      return;
+    }
 
-          document.getElementById("userRole").textContent =
-            "Not logged in";
-        }
+    hideAllSections();
+    $("dashboard").classList.remove("hidden");
+    $("userEmail").textContent = user.email || "";
 
-      },
-      function (error) {
+    $("userRole").textContent = "Checking...";
+    $("dashboardMessage").textContent =
+      "Checking your account permissions...";
 
-        showMessage(
-          "Authentication error: " + error.message
-        );
+    try{
+      const roleDoc = await db.collection("Users")
+        .doc(user.uid).get();
 
-      }
-    );
-
-    // Login form
-    form.addEventListener("submit", async function (event) {
-
-      event.preventDefault();
-      hideMessage();
-
-      button.disabled = true;
-      button.textContent = "Logging in...";
-
-      const email =
-        document.getElementById("email").value.trim();
-
-      const password =
-        document.getElementById("password").value;
-
-      try {
-
-        await auth.signInWithEmailAndPassword(
-          email,
-          password
-        );
-
-        showMessage("Login successful.");
-
-      } catch (error) {
-
-        const errors = {
-
-          "auth/invalid-credential":
-            "Email ya password ghalat hai.",
-
-          "auth/user-not-found":
-            "Ye email Firebase Users mein nahi mila.",
-
-          "auth/wrong-password":
-            "Password ghalat hai.",
-
-          "auth/invalid-email":
-            "Email ka format check karein.",
-
-          "auth/too-many-requests":
-            "Bohat zyada koshish hui. Kuch der baad try karein.",
-
-          "auth/network-request-failed":
-            "Internet connection check karein.",
-
-          "auth/unauthorized-domain":
-            "Firebase Authorized domains mein apni website ka domain add karein.",
-
-          "auth/operation-not-allowed":
-            "Firebase mein Email/Password sign-in enable karein."
-
-        };
-
-        showMessage(
-          errors[error.code] ||
-          ("Login error: " + error.code + " — " + error.message)
-        );
-
-      } finally {
-
-        button.disabled = false;
-        button.textContent = "Login";
-
+      if(!roleDoc.exists){
+        $("userRole").textContent = "Not configured";
+        $("dashboardMessage").textContent =
+          "Aapka role Users collection mein nahi mila. Admin se role check karwayein.";
+        return;
       }
 
-    });
+      const role = roleDoc.data().role;
 
-    // Logout
-    document.getElementById("logoutButton")
-      .addEventListener("click", async function () {
+      if(role !== "admin" && role !== "principal"){
+        $("userRole").textContent = "Invalid role";
+        $("dashboardMessage").textContent =
+          "Is account ka role admin ya principal nahi hai.";
+        return;
+      }
 
-        const logoutButton = this;
+      currentRole = role;
+      $("userRole").textContent =
+        role === "admin" ? "Admin" : "Principal";
 
-        logoutButton.disabled = true;
-        logoutButton.textContent = "Logging out...";
+      $("dashboardMessage").textContent =
+        role === "admin"
+        ? "Aap students ke records manage kar sakte hain."
+        : "Aap student records sirf dekh sakte hain.";
 
-        try {
+      $("studentListCard").classList.remove("hidden");
 
-          await auth.signOut();
+      if(role === "admin"){
+        $("studentFormCard").classList.remove("hidden");
+      }
 
-        } catch (error) {
+      await loadStudents();
 
-          alert("Logout error: " + error.message);
+    }catch(error){
+      $("userRole").textContent = "Role check failed";
+      $("dashboardMessage").textContent =
+        "Firestore se role load nahi hua: " + error.message;
+    }
+  });
 
-        } finally {
+  // SAVE OR UPDATE STUDENT
+  $("studentForm").addEventListener("submit",async function(e){
+    e.preventDefault();
 
-          logoutButton.disabled = false;
-          logoutButton.textContent = "Logout";
+    if(!currentUser || currentRole !== "admin"){
+      message("formMessage","Sirf Admin student record badal sakta hai.","error");
+      return;
+    }
 
-        }
+    const student = {
+      grNumber: $("grNumber").value.trim(),
+      studentName: $("studentName").value.trim(),
+      fatherName: $("fatherName").value.trim(),
+      dob: $("dob").value,
+      gender: $("gender").value,
+      className: $("className").value,
+      section: $("section").value.trim(),
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    };
 
+    if(!student.grNumber || !student.studentName ||
+       !student.fatherName || !student.dob ||
+       !student.gender || !student.className ||
+       !student.section){
+      message("formMessage","Tamam fields fill karein.","error");
+      return;
+    }
+
+    $("saveButton").disabled = true;
+    $("saveButton").textContent = "Saving...";
+
+    try{
+      if(editingId){
+        await db.collection("Students").doc(editingId).update(student);
+        message("formMessage","Student record update ho gaya.","success");
+      }else{
+        student.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+        await db.collection("Students").add(student);
+        message("formMessage","Student successfully save ho gaya.","success");
+      }
+
+      resetStudentForm();
+      await loadStudents();
+
+    }catch(error){
+      message("formMessage",
+        "Save nahi hua: " + error.message,"error");
+    }finally{
+      $("saveButton").disabled = false;
+      $("saveButton").textContent =
+        editingId ? "Update Student" : "Save Student";
+    }
+  });
+
+  // LOAD STUDENTS
+  async function loadStudents(){
+    if(!currentUser ||
+       (currentRole !== "admin" && currentRole !== "principal")){
+      return;
+    }
+
+    $("studentList").textContent = "Loading records...";
+
+    try{
+      const snapshot = await db.collection("Students").get();
+
+      studentCache = [];
+      snapshot.forEach(doc=>{
+        studentCache.push({id:doc.id,...doc.data()});
       });
 
-  } catch (error) {
+      renderStudents();
 
-    showMessage(
-      "App error: " + error.message
+    }catch(error){
+      $("studentList").textContent =
+        "Records load nahi hue: " + error.message;
+    }
+  }
+
+  // DISPLAY STUDENTS
+  function renderStudents(){
+    const query = $("searchStudent").value.trim().toLowerCase();
+    const classFilter = $("filterClass").value;
+
+    const filtered = studentCache.filter(s=>{
+      const text = [
+        s.grNumber,s.studentName,s.fatherName,
+        s.className,s.section
+      ].map(safeText).join(" ").toLowerCase();
+
+      return text.includes(query) &&
+        (!classFilter || s.className === classFilter);
+    });
+
+    $("studentCount").textContent =
+      "Students found: " + filtered.length;
+
+    $("studentList").replaceChildren();
+
+    if(filtered.length === 0){
+      $("studentList").textContent = "Koi student record nahi mila.";
+      return;
+    }
+
+    filtered.forEach(s=>{
+      const box = document.createElement("div");
+      box.className = "student";
+
+      const details = document.createElement("div");
+      details.textContent =
+        "GR Number: " + safeText(s.grNumber) + "\n" +
+        "Student: " + safeText(s.studentName) + "\n" +
+        "Father: " + safeText(s.fatherName) + "\n" +
+        "DOB: " + safeText(s.dob) + "\n" +
+        "Gender: " + safeText(s.gender) + "\n" +
+        "Class: " + safeText(s.className) + "\n" +
+        "Section: " + safeText(s.section);
+
+      details.style.whiteSpace = "pre-line";
+      box.appendChild(details);
+
+      if(currentRole === "admin"){
+        const actions = document.createElement("div");
+        actions.className = "actions";
+
+        const editButton = document.createElement("button");
+        editButton.className = "edit";
+        editButton.textContent = "Edit";
+        editButton.addEventListener("click",()=>editStudent(s));
+
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete";
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click",()=>deleteStudent(s));
+
+        actions.append(editButton,deleteButton);
+        box.appendChild(actions);
+      }
+
+      $("studentList").appendChild(box);
+    });
+  }
+
+  // EDIT STUDENT
+  function editStudent(s){
+    if(currentRole !== "admin") return;
+
+    editingId = s.id;
+
+    $("grNumber").value = safeText(s.grNumber);
+    $("studentName").value = safeText(s.studentName);
+    $("fatherName").value = safeText(s.fatherName);
+    $("dob").value = safeText(s.dob);
+    $("gender").value = safeText(s.gender);
+    $("className").value = safeText(s.className);
+    $("section").value = safeText(s.section);
+
+    $("formHeading").textContent = "✏️ Edit Student";
+    $("saveButton").textContent = "Update Student";
+    $("cancelEditButton").classList.remove("hidden");
+
+    $("studentFormCard").scrollIntoView({behavior:"smooth"});
+  }
+
+  $("cancelEditButton").addEventListener("click",resetStudentForm);
+
+  // DELETE STUDENT
+  async function deleteStudent(s){
+    if(currentRole !== "admin") return;
+
+    const confirmed = confirm(
+      "Kya aap " + safeText(s.studentName) +
+      " ka record delete karna chahte hain?"
     );
 
+    if(!confirmed) return;
+
+    try{
+      await db.collection("Students").doc(s.id).delete();
+      message("listMessage","Student record delete ho gaya.","success");
+      await loadStudents();
+    }catch(error){
+      message("listMessage",
+        "Delete nahi hua: " + error.message,"error");
+    }
   }
+
+  $("searchStudent").addEventListener("input",renderStudents);
+  $("filterClass").addEventListener("change",renderStudents);
+
+  // LOGOUT
+  $("logoutButton").addEventListener("click",async function(){
+    $("logoutButton").disabled = true;
+
+    try{
+      await auth.signOut();
+    }catch(error){
+      alert("Logout error: " + error.message);
+    }finally{
+      $("logoutButton").disabled = false;
+    }
+  });
 
 })();
 </script>
