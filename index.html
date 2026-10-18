@@ -2,121 +2,185 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Moon Star Face Attendance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Moon Star Public High School</title>
 
 <style>
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f0f4f8;
-  color:#243047;
+* {
+  box-sizing: border-box;
 }
 
-header{
-  background:#087f70;
-  color:white;
-  text-align:center;
-  padding:22px 12px;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f5fb;
+  color: #243247;
 }
 
-header h2{margin:0 0 8px}
-header p{margin:6px 0}
-
-.container{
-  max-width:700px;
-  margin:25px auto;
-  padding:12px;
+header {
+  background: #123b70;
+  color: white;
+  padding: 20px 12px;
+  text-align: center;
 }
 
-.card{
-  background:white;
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 3px 14px #0001;
-  margin-bottom:20px;
+header h1 {
+  margin: 0 0 8px;
+  font-size: 23px;
 }
 
-h3{text-align:center}
-
-label{
-  display:block;
-  margin:14px 0 6px;
-  font-weight:bold;
+header p {
+  margin: 4px 0;
 }
 
-input,select{
-  width:100%;
-  padding:12px;
-  border:1px solid #ccd5df;
-  border-radius:8px;
-  font-size:16px;
-  background:white;
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 12px;
 }
 
-button{
-  padding:12px;
-  margin-top:14px;
-  border:0;
-  border-radius:8px;
-  background:#087f70;
-  color:white;
-  font-size:15px;
-  font-weight:bold;
-  cursor:pointer;
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 12px #00000012;
 }
 
-button:disabled{opacity:.6}
-
-.full{width:100%}
-.logout,.delete{background:#b42332}
-.secondary{background:#52647a}
-.edit{background:#1769aa}
-
-.hidden{display:none!important}
-
-.info{
-  background:#e5f5f1;
-  padding:14px;
-  border-radius:8px;
-  line-height:1.8;
-  overflow-wrap:anywhere;
+h2 {
+  margin-top: 0;
+  color: #123b70;
+  font-size: 21px;
 }
 
-.message{
-  padding:12px;
-  margin-top:12px;
-  border-radius:8px;
-  overflow-wrap:anywhere;
+label {
+  display: block;
+  margin: 12px 0 5px;
+  font-weight: bold;
 }
 
-.error{background:#fee2e2;color:#991b1b}
-.success{background:#dcfce7;color:#166534}
-
-.student{
-  border:1px solid #d8e0e8;
-  border-radius:10px;
-  padding:14px;
-  margin-top:12px;
-  overflow-wrap:anywhere;
+input,
+select,
+button {
+  font: inherit;
 }
 
-.student p{margin:7px 0}
-
-.actions{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+input,
+select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: white;
 }
 
-.actions button{flex:1;min-width:100px}
+button {
+  border: none;
+  border-radius: 7px;
+  padding: 11px 15px;
+  margin-top: 12px;
+  cursor: pointer;
+  background: #1769aa;
+  color: white;
+  font-weight: bold;
+}
 
-footer{
-  text-align:center;
-  color:#687386;
-  padding:15px;
+button:hover {
+  opacity: 0.9;
+}
+
+.danger {
+  background: #c62828;
+}
+
+.secondary {
+  background: #526477;
+}
+
+.success {
+  background: #218838;
+}
+
+.full {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.status {
+  padding: 11px;
+  margin: 12px 0;
+  border-radius: 7px;
+  background: #e8f2ff;
+  overflow-wrap: anywhere;
+}
+
+.status.error {
+  background: #ffebee;
+  color: #b71c1c;
+}
+
+.status.ok {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 12px;
+  min-width: 650px;
+}
+
+th,
+td {
+  border: 1px solid #d9e1ea;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background: #e7eff9;
+}
+
+.small-btn {
+  padding: 7px 10px;
+  margin: 3px;
+  font-size: 13px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+}
+
+@media(max-width:600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
 }
 </style>
 </head>
@@ -124,539 +188,954 @@ footer{
 <body>
 
 <header>
-  <h2>Moon Star Public High School</h2>
+  <h1>Moon Star Public High School</h1>
   <p>Khanwahan</p>
-  <p>Face Attendance System</p>
+  <p>School Management System</p>
 </header>
 
-<main class="container">
+<div class="container">
 
   <!-- LOGIN -->
-  <section class="card" id="loginCard">
-    <h3>🔐 Login</h3>
+  <section id="loginCard" class="card">
+    <h2>Login</h2>
 
-    <form id="loginForm">
-      <label for="email">Email Address</label>
-      <input id="email" type="email"
-             autocomplete="username" required>
+    <label>Email Address</label>
+    <input id="email" type="email"
+           placeholder="Enter email" autocomplete="username">
 
-      <label for="password">Password</label>
-      <input id="password" type="password"
-             autocomplete="current-password" required>
+    <label>Password</label>
+    <input id="password" type="password"
+           placeholder="Enter password"
+           autocomplete="current-password">
 
-      <button class="full" type="submit" id="loginButton">
-        Login
-      </button>
-    </form>
+    <button id="loginBtn" class="full">Login</button>
 
-    <div id="loginMessage" aria-live="polite"></div>
+    <div id="loginMessage" class="status hidden"></div>
   </section>
 
   <!-- DASHBOARD -->
-  <section class="card hidden" id="dashboard">
-    <h3>✅ Login Successful</h3>
+  <section id="dashboard" class="hidden">
 
-    <div class="info">
-      <strong>School:</strong> Moon Star Public High School<br>
-      <strong>Location:</strong> Khanwahan<br>
-      <strong>Logged in as:</strong>
-      <span id="userEmail"></span><br>
-      <strong>Role:</strong>
-      <span id="userRole">Checking...</span><br>
-      <span id="dashboardMessage"></span>
+    <div class="card">
+      <div class="grid">
+        <div>
+          <h2>Dashboard</h2>
+          <div id="userInfo"></div>
+        </div>
+
+        <div>
+          <button id="refreshBtn" class="full">
+            Refresh Records
+          </button>
+
+          <button id="logoutBtn" class="danger full">
+            Logout
+          </button>
+        </div>
+      </div>
+
+      <div id="appMessage" class="status hidden"></div>
     </div>
 
-    <button class="logout full" id="logoutButton">
-      Logout
-    </button>
+    <!-- CLASS MANAGEMENT -->
+    <section id="classSection" class="card hidden">
+      <h2>Class Management</h2>
+
+      <p>
+        Class ka naam likhein aur sections comma se alag karein.
+        Misal: Nursery aur sections A, B.
+      </p>
+
+      <form id="classForm">
+
+        <input type="hidden" id="classDocId">
+
+        <label>Class Name</label>
+        <input id="className"
+               placeholder="Misal: Nursery, KG, Class 1"
+               required>
+
+        <label>Sections</label>
+        <input id="sectionNames"
+               placeholder="Misal: A, B, C"
+               required>
+
+        <button type="submit" id="saveClassBtn">
+          Save Class
+        </button>
+
+        <button type="button" id="cancelClassBtn"
+                class="secondary hidden">
+          Cancel Edit
+        </button>
+      </form>
+
+      <h3>Available Classes</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Sections</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="classesTable"></tbody>
+        </table>
+      </div>
+
+      <p>
+        Note: Class delete karne se pehle us class ke students
+        ko doosri class mein move karein. Students wale class
+        records hone par deletion roki jayegi.
+      </p>
+    </section>
+
+    <!-- STUDENT FORM -->
+    <section id="studentSection" class="card hidden">
+      <h2 id="studentFormTitle">Student Registration</h2>
+
+      <form id="studentForm">
+
+        <input type="hidden" id="studentDocId">
+
+        <div class="grid">
+
+          <div>
+            <label>GR Number</label>
+            <input id="grNumber"
+                   placeholder="Enter GR Number"
+                   required>
+          </div>
+
+          <div>
+            <label>Student Name</label>
+            <input id="studentName"
+                   placeholder="Student name"
+                   required>
+          </div>
+
+          <div>
+            <label>Father Name</label>
+            <input id="fatherName"
+                   placeholder="Father name"
+                   required>
+          </div>
+
+          <div>
+            <label>Date of Birth</label>
+            <input id="dob" type="date">
+          </div>
+
+          <div>
+            <label>Gender</label>
+            <select id="gender">
+              <option value="">Select Gender</option>
+              <option value="Boy">Boy</option>
+              <option value="Girl">Girl</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Class</label>
+            <select id="studentClass" required>
+              <option value="">Select Class</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Section</label>
+            <select id="studentSection" required>
+              <option value="">Select Section</option>
+            </select>
+          </div>
+
+        </div>
+
+        <button type="submit" id="saveStudentBtn">
+          Save Student
+        </button>
+
+        <button type="button" id="cancelStudentBtn"
+                class="secondary hidden">
+          Cancel Edit
+        </button>
+
+      </form>
+    </section>
+
+    <!-- STUDENT LIST -->
+    <section class="card">
+      <h2>Student Records</h2>
+
+      <div class="grid">
+
+        <div>
+          <label>Search Student</label>
+          <input id="searchStudent"
+                 placeholder="Search name or GR number">
+        </div>
+
+        <div>
+          <label>Filter by Class</label>
+          <select id="filterClass">
+            <option value="">All Classes</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Filter by Section</label>
+          <select id="filterSection">
+            <option value="">All Sections</option>
+          </select>
+        </div>
+
+      </div>
+
+      <p id="studentCount">Students: 0</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>GR Number</th>
+              <th>Student Name</th>
+              <th>Father Name</th>
+              <th>Date of Birth</th>
+              <th>Gender</th>
+              <th>Class</th>
+              <th>Section</th>
+              <th id="actionsHeading">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="studentsTable"></tbody>
+        </table>
+      </div>
+    </section>
+
   </section>
-
-  <!-- STUDENT FORM: ADMIN ONLY -->
-  <section class="card hidden" id="studentFormCard">
-    <h3 id="formHeading">➕ Student Registration</h3>
-
-    <form id="studentForm">
-
-      <label for="grNumber">GR Number</label>
-      <input id="grNumber" required maxlength="40">
-
-      <label for="studentName">Student Name</label>
-      <input id="studentName" required maxlength="100">
-
-      <label for="fatherName">Father Name</label>
-      <input id="fatherName" required maxlength="100">
-
-      <label for="dob">Date of Birth</label>
-      <input id="dob" type="date" required>
-
-      <label for="gender">Gender</label>
-      <select id="gender" required>
-        <option value="">Select Gender</option>
-        <option value="Boy">Boy</option>
-        <option value="Girl">Girl</option>
-      </select>
-
-      <label for="className">Class</label>
-      <select id="className" required>
-        <option value="">Select Class</option>
-        <option>Nursery</option>
-        <option>KG</option>
-        <option>Class 1</option>
-        <option>Class 2</option>
-        <option>Class 3</option>
-        <option>Class 4</option>
-        <option>Class 5</option>
-        <option>Class 6</option>
-        <option>Class 7</option>
-        <option>Class 8</option>
-        <option>Class 9</option>
-        <option>Class 10</option>
-      </select>
-
-      <label for="section">Section</label>
-      <input id="section" required maxlength="30"
-             placeholder="Example: A">
-
-      <button class="full" type="submit" id="saveButton">
-        Save Student
-      </button>
-
-      <button class="secondary full hidden"
-              type="button" id="cancelEditButton">
-        Cancel Edit
-      </button>
-
-    </form>
-
-    <div id="formMessage" aria-live="polite"></div>
-  </section>
-
-  <!-- STUDENT LIST -->
-  <section class="card hidden" id="studentListCard">
-    <h3>📚 Student Records</h3>
-
-    <label for="searchStudent">Search Student</label>
-    <input id="searchStudent"
-           placeholder="Search by GR number or name">
-
-    <label for="filterClass">Filter by Class</label>
-    <select id="filterClass">
-      <option value="">All Classes</option>
-      <option>Nursery</option>
-      <option>KG</option>
-      <option>Class 1</option>
-      <option>Class 2</option>
-      <option>Class 3</option>
-      <option>Class 4</option>
-      <option>Class 5</option>
-      <option>Class 6</option>
-      <option>Class 7</option>
-      <option>Class 8</option>
-      <option>Class 9</option>
-      <option>Class 10</option>
-    </select>
-
-    <p id="studentCount"></p>
-    <div id="studentList">Loading records...</div>
-    <div id="listMessage" aria-live="polite"></div>
-  </section>
-
-</main>
+</div>
 
 <footer>
-  Moon Star Public High School Khanwahan
+  Moon Star Public High School, Khanwahan
 </footer>
 
-<!-- FIREBASE LIBRARIES -->
+<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
-(function(){
+/* FIREBASE CONFIG */
 
-  const $ = id => document.getElementById(id);
+const firebaseConfig = {
+  apiKey: "AIzaSyDFiIQvhbbxoemkRZ3_DYzB4YHIWYGngkU",
+  authDomain: "moon-star-face-attendance.firebaseapp.com",
+  projectId: "moon-star-face-attendance",
+  storageBucket: "moon-star-face-attendance.firebasestorage.app",
+  messagingSenderId: "702855028449",
+  appId: "1:702855028449:web:cc0306a587a3581a0",
+  measurementId: "G-C6X4FG0FB4"
+};
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDFiIQvhbbxoemkRZ3_DYzB4YHIWYGngkU",
-    authDomain: "moon-star-face-attendance.firebaseapp.com",
-    projectId: "moon-star-face-attendance",
-    storageBucket: "moon-star-face-attendance.firebasestorage.app",
-    messagingSenderId: "702855028449",
-    appId: "1:702855028449:web:cc0306a587a3581a0",
-    measurementId: "G-C6X4FG0FB4"
-  };
+firebase.initializeApp(firebaseConfig);
 
-  let auth;
-  let db;
-  let currentUser = null;
-  let currentRole = "";
-  let editingId = null;
-  let studentCache = [];
+const auth = firebase.auth();
+const db = firebase.firestore();
 
-  function message(id,text,type){
-    const box = $(id);
-    box.textContent = text;
-    box.className = "message " + (type || "");
-  }
+let currentUser = null;
+let currentRole = "";
+let classes = [];
+let students = [];
+let loading = false;
 
-  function clearMessage(id){
-    $(id).textContent = "";
-    $(id).className = "";
-  }
+const $ = id => document.getElementById(id);
 
-  function showLogin(){
-    $("loginCard").classList.remove("hidden");
-    $("dashboard").classList.add("hidden");
-    $("studentFormCard").classList.add("hidden");
-    $("studentListCard").classList.add("hidden");
-  }
+function showMessage(id, message, type = "") {
+  const el = $(id);
+  el.textContent = message;
+  el.className = "status";
+  if (type) el.classList.add(type);
+}
 
-  function hideAllSections(){
-    $("loginCard").classList.add("hidden");
-    $("dashboard").classList.add("hidden");
-    $("studentFormCard").classList.add("hidden");
-    $("studentListCard").classList.add("hidden");
-  }
+function hideMessage(id) {
+  $(id).className = "status hidden";
+}
 
-  function resetStudentForm(){
-    editingId = null;
-    $("studentForm").reset();
-    $("formHeading").textContent = "➕ Student Registration";
-    $("saveButton").textContent = "Save Student";
-    $("cancelEditButton").classList.add("hidden");
-    clearMessage("formMessage");
-  }
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[ch]);
+}
 
-  function safeText(value){
-    return value == null ? "" : String(value);
-  }
+function isAdmin() {
+  return currentRole === "admin";
+}
 
-  try {
-    if(!window.firebase){
-      message("loginMessage",
-        "Firebase load nahi hua. Internet check karein.","error");
-      return;
-    }
+/* LOGIN */
 
-    if(!firebase.apps.length){
-      firebase.initializeApp(firebaseConfig);
-    }
+$("loginBtn").addEventListener("click", async () => {
+  const email = $("email").value.trim();
+  const password = $("password").value;
 
-    auth = firebase.auth();
-    db = firebase.firestore();
-
-  } catch(error) {
-    message("loginMessage",
-      "Firebase setup error: " + error.message,"error");
+  if (!email || !password) {
+    showMessage("loginMessage",
+      "Email aur password dono likhein.", "error");
     return;
   }
 
-  // LOGIN
-  $("loginForm").addEventListener("submit",async function(e){
-    e.preventDefault();
-    clearMessage("loginMessage");
+  $("loginBtn").disabled = true;
+  showMessage("loginMessage", "Login ho raha hai...");
 
-    $("loginButton").disabled = true;
-    $("loginButton").textContent = "Logging in...";
+  try {
+    await auth.signInWithEmailAndPassword(email, password);
+  } catch (error) {
+    showMessage("loginMessage",
+      friendlyError(error), "error");
+  } finally {
+    $("loginBtn").disabled = false;
+  }
+});
 
-    try{
-      await auth.signInWithEmailAndPassword(
-        $("email").value.trim(),
-        $("password").value
-      );
-    }catch(error){
-      const errors = {
-        "auth/invalid-credential":"Email ya password ghalat hai.",
-        "auth/user-not-found":"Ye email Firebase mein nahi mila.",
-        "auth/wrong-password":"Password ghalat hai.",
-        "auth/invalid-email":"Email ka format check karein.",
-        "auth/too-many-requests":"Kuch der baad dobara koshish karein.",
-        "auth/network-request-failed":"Internet connection check karein.",
-        "auth/unauthorized-domain":"Firebase Authorized Domains check karein.",
-        "auth/operation-not-allowed":"Email/Password login enable karein."
-      };
+$("password").addEventListener("keydown", e => {
+  if (e.key === "Enter") $("loginBtn").click();
+});
 
-      message("loginMessage",
-        errors[error.code] || ("Login error: " + error.message),
-        "error");
-    }finally{
-      $("loginButton").disabled = false;
-      $("loginButton").textContent = "Login";
-    }
-  });
+function friendlyError(error) {
+  const code = error && error.code;
 
-  // ROLE CHECK
-  auth.onAuthStateChanged(async function(user){
+  const messages = {
+    "auth/invalid-email": "Email address durust nahi hai.",
+    "auth/user-not-found": "Is email ka account nahi mila.",
+    "auth/wrong-password": "Password ghalat hai.",
+    "auth/invalid-credential": "Email ya password ghalat hai.",
+    "auth/too-many-requests":
+      "Bohat zyada attempts hue hain. Kuch der baad koshish karein.",
+    "auth/network-request-failed":
+      "Internet connection check karein.",
+    "permission-denied":
+      "Firebase permission nahi mili. Security Rules check karein."
+  };
 
-    currentUser = user;
+  return messages[code] ||
+    (error && error.message) ||
+    "Koi error aaya hai. Dobara koshish karein.";
+}
+
+/* AUTH STATE */
+
+auth.onAuthStateChanged(async user => {
+  currentUser = user;
+
+  if (!user) {
     currentRole = "";
-    studentCache = [];
-    resetStudentForm();
+    $("loginCard").classList.remove("hidden");
+    $("dashboard").classList.add("hidden");
+    return;
+  }
 
-    if(!user){
-      showLogin();
-      $("userRole").textContent = "Not logged in";
+  try {
+    const userDoc = await db.collection("Users")
+      .doc(user.uid).get();
+
+    if (!userDoc.exists) {
+      await auth.signOut();
+      showMessage("loginMessage",
+        "Users collection mein is account ka role nahi mila.",
+        "error");
       return;
     }
 
-    hideAllSections();
+    currentRole = String(userDoc.data().role || "")
+      .trim().toLowerCase();
+
+    if (!["admin", "principal"].includes(currentRole)) {
+      await auth.signOut();
+      showMessage("loginMessage",
+        "Is account ka role admin ya principal hona chahiye.",
+        "error");
+      return;
+    }
+
+    $("loginCard").classList.add("hidden");
     $("dashboard").classList.remove("hidden");
-    $("userEmail").textContent = user.email || "";
 
-    $("userRole").textContent = "Checking...";
-    $("dashboardMessage").textContent =
-      "Checking your account permissions...";
+    $("userInfo").textContent =
+      "Logged in: " + user.email +
+      " | Role: " + currentRole.toUpperCase();
 
-    try{
-      const roleDoc = await db.collection("Users")
-        .doc(user.uid).get();
+    $("classSection").classList.toggle("hidden", !isAdmin());
+    $("studentSection").classList.toggle("hidden", !isAdmin());
+    $("actionsHeading").classList.toggle("hidden", !isAdmin());
 
-      if(!roleDoc.exists){
-        $("userRole").textContent = "Not configured";
-        $("dashboardMessage").textContent =
-          "Aapka role Users collection mein nahi mila. Admin se role check karwayein.";
-        return;
-      }
+    await refreshAll();
 
-      const role = roleDoc.data().role;
+  } catch (error) {
+    showMessage("loginMessage",
+      "Account role load nahi hua: " + friendlyError(error),
+      "error");
+  }
+});
 
-      if(role !== "admin" && role !== "principal"){
-        $("userRole").textContent = "Invalid role";
-        $("dashboardMessage").textContent =
-          "Is account ka role admin ya principal nahi hai.";
-        return;
-      }
+/* LOGOUT */
 
-      currentRole = role;
-      $("userRole").textContent =
-        role === "admin" ? "Admin" : "Principal";
+$("logoutBtn").addEventListener("click", async () => {
+  try {
+    await auth.signOut();
+  } catch (error) {
+    showMessage("appMessage",
+      friendlyError(error), "error");
+  }
+});
 
-      $("dashboardMessage").textContent =
-        role === "admin"
-        ? "Aap students ke records manage kar sakte hain."
-        : "Aap student records sirf dekh sakte hain.";
+/* REFRESH */
 
-      $("studentListCard").classList.remove("hidden");
+$("refreshBtn").addEventListener("click", refreshAll);
 
-      if(role === "admin"){
-        $("studentFormCard").classList.remove("hidden");
-      }
+async function refreshAll() {
+  if (!currentUser || loading) return;
 
-      await loadStudents();
+  loading = true;
+  showMessage("appMessage", "Records load ho rahe hain...");
 
-    }catch(error){
-      $("userRole").textContent = "Role check failed";
-      $("dashboardMessage").textContent =
-        "Firestore se role load nahi hua: " + error.message;
-    }
-  });
+  try {
+    await loadClasses();
+    await loadStudents();
 
-  // SAVE OR UPDATE STUDENT
-  $("studentForm").addEventListener("submit",async function(e){
-    e.preventDefault();
+    showMessage("appMessage",
+      "Records successfully load ho gaye.", "ok");
 
-    if(!currentUser || currentRole !== "admin"){
-      message("formMessage","Sirf Admin student record badal sakta hai.","error");
+  } catch (error) {
+    showMessage("appMessage",
+      "Records load nahi hue: " + friendlyError(error),
+      "error");
+  } finally {
+    loading = false;
+  }
+}
+
+/* CLASS MANAGEMENT */
+
+async function loadClasses() {
+  const snapshot = await db.collection("Classes").get();
+
+  classes = snapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data()
+  }));
+
+  classes.sort((a, b) =>
+    String(a.name || "").localeCompare(String(b.name || ""))
+  );
+
+  renderClasses();
+  populateClassDropdowns();
+}
+
+function normalizeSections(value) {
+  return [...new Set(
+    value.split(",")
+      .map(s => s.trim())
+      .filter(Boolean)
+  )];
+}
+
+$("classForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  if (!isAdmin()) return;
+
+  const name = $("className").value.trim();
+  const sections = normalizeSections($("sectionNames").value);
+  const docId = $("classDocId").value;
+
+  if (!name) {
+    showMessage("appMessage", "Class name likhein.", "error");
+    return;
+  }
+
+  if (sections.length === 0) {
+    showMessage("appMessage",
+      "Kam az kam ek section likhein.", "error");
+    return;
+  }
+
+  try {
+    const duplicate = classes.some(c =>
+      c.id !== docId &&
+      String(c.name || "").trim().toLowerCase() ===
+      name.toLowerCase()
+    );
+
+    if (duplicate) {
+      showMessage("appMessage",
+        "Is naam ki class pehle se mojood hai.", "error");
       return;
     }
 
-    const student = {
-      grNumber: $("grNumber").value.trim(),
-      studentName: $("studentName").value.trim(),
-      fatherName: $("fatherName").value.trim(),
-      dob: $("dob").value,
-      gender: $("gender").value,
-      className: $("className").value,
-      section: $("section").value.trim(),
+    const data = {
+      name,
+      sections,
       updatedAt: firebase.firestore.FieldValue.serverTimestamp()
     };
 
-    if(!student.grNumber || !student.studentName ||
-       !student.fatherName || !student.dob ||
-       !student.gender || !student.className ||
-       !student.section){
-      message("formMessage","Tamam fields fill karein.","error");
+    if (docId) {
+      await db.collection("Classes").doc(docId).update(data);
+    } else {
+      data.createdAt =
+        firebase.firestore.FieldValue.serverTimestamp();
+
+      await db.collection("Classes").add(data);
+    }
+
+    resetClassForm();
+    await loadClasses();
+
+    showMessage("appMessage",
+      "Class successfully save ho gayi.", "ok");
+
+  } catch (error) {
+    showMessage("appMessage",
+      "Class save nahi hui: " + friendlyError(error), "error");
+  }
+});
+
+function renderClasses() {
+  const tbody = $("classesTable");
+
+  if (!classes.length) {
+    tbody.innerHTML =
+      '<tr><td colspan="3">Abhi koi class add nahi hui. Upar se class add karein.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = classes.map(c => `
+    <tr>
+      <td>${escapeHTML(c.name || "")}</td>
+      <td>${escapeHTML((c.sections || []).join(", "))}</td>
+      <td>
+        <button class="small-btn"
+          data-edit-class="${escapeHTML(c.id)}">
+          Edit
+        </button>
+        <button class="small-btn danger"
+          data-delete-class="${escapeHTML(c.id)}">
+          Delete
+        </button>
+      </td>
+    </tr>
+  `).join("");
+}
+
+$("classesTable").addEventListener("click", async e => {
+  const editId = e.target.dataset.editClass;
+  const deleteId = e.target.dataset.deleteClass;
+
+  if (editId) {
+    const c = classes.find(item => item.id === editId);
+    if (!c) return;
+
+    $("classDocId").value = c.id;
+    $("className").value = c.name || "";
+    $("sectionNames").value = (c.sections || []).join(", ");
+    $("saveClassBtn").textContent = "Update Class";
+    $("cancelClassBtn").classList.remove("hidden");
+
+    $("classSection").scrollIntoView({behavior: "smooth"});
+  }
+
+  if (deleteId) {
+    await deleteClass(deleteId);
+  }
+});
+
+async function deleteClass(id) {
+  if (!isAdmin()) return;
+
+  const c = classes.find(item => item.id === id);
+  if (!c) return;
+
+  const className = String(c.name || "");
+
+  if (!confirm(
+    'Kya aap "' + className +
+    '" class delete karna chahte hain?'
+  )) return;
+
+  try {
+    /*
+      Safety check: is class ke student records hon
+      to class delete nahi hogi.
+    */
+    const snapshot = await db.collection("Students")
+      .where("className", "==", className)
+      .limit(1)
+      .get();
+
+    if (!snapshot.empty) {
+      showMessage("appMessage",
+        "Is class mein student records hain. Pehle un students ko doosri class mein move karein.",
+        "error");
       return;
     }
 
-    $("saveButton").disabled = true;
-    $("saveButton").textContent = "Saving...";
+    await db.collection("Classes").doc(id).delete();
 
-    try{
-      if(editingId){
-        await db.collection("Students").doc(editingId).update(student);
-        message("formMessage","Student record update ho gaya.","success");
-      }else{
-        student.createdAt = firebase.firestore.FieldValue.serverTimestamp();
-        await db.collection("Students").add(student);
-        message("formMessage","Student successfully save ho gaya.","success");
-      }
+    resetClassForm();
+    await loadClasses();
 
-      resetStudentForm();
-      await loadStudents();
+    showMessage("appMessage",
+      "Class delete ho gayi.", "ok");
 
-    }catch(error){
-      message("formMessage",
-        "Save nahi hua: " + error.message,"error");
-    }finally{
-      $("saveButton").disabled = false;
-      $("saveButton").textContent =
-        editingId ? "Update Student" : "Save Student";
-    }
+  } catch (error) {
+    showMessage("appMessage",
+      "Class delete nahi hui: " + friendlyError(error),
+      "error");
+  }
+}
+
+$("cancelClassBtn").addEventListener("click", resetClassForm);
+
+function resetClassForm() {
+  $("classForm").reset();
+  $("classDocId").value = "";
+  $("saveClassBtn").textContent = "Save Class";
+  $("cancelClassBtn").classList.add("hidden");
+}
+
+/* DROPDOWNS */
+
+function populateClassDropdowns() {
+  const previousStudentClass = $("studentClass").value;
+  const previousFilterClass = $("filterClass").value;
+
+  $("studentClass").innerHTML =
+    '<option value="">Select Class</option>';
+
+  $("filterClass").innerHTML =
+    '<option value="">All Classes</option>';
+
+  classes.forEach(c => {
+    const option1 = document.createElement("option");
+    option1.value = c.name;
+    option1.textContent = c.name;
+    $("studentClass").appendChild(option1);
+
+    const option2 = document.createElement("option");
+    option2.value = c.name;
+    option2.textContent = c.name;
+    $("filterClass").appendChild(option2);
   });
 
-  // LOAD STUDENTS
-  async function loadStudents(){
-    if(!currentUser ||
-       (currentRole !== "admin" && currentRole !== "principal")){
-      return;
-    }
-
-    $("studentList").textContent = "Loading records...";
-
-    try{
-      const snapshot = await db.collection("Students").get();
-
-      studentCache = [];
-      snapshot.forEach(doc=>{
-        studentCache.push({id:doc.id,...doc.data()});
-      });
-
-      renderStudents();
-
-    }catch(error){
-      $("studentList").textContent =
-        "Records load nahi hue: " + error.message;
-    }
+  if (classes.some(c => c.name === previousStudentClass)) {
+    $("studentClass").value = previousStudentClass;
   }
 
-  // DISPLAY STUDENTS
-  function renderStudents(){
-    const query = $("searchStudent").value.trim().toLowerCase();
-    const classFilter = $("filterClass").value;
+  if (classes.some(c => c.name === previousFilterClass)) {
+    $("filterClass").value = previousFilterClass;
+  }
 
-    const filtered = studentCache.filter(s=>{
-      const text = [
-        s.grNumber,s.studentName,s.fatherName,
-        s.className,s.section
-      ].map(safeText).join(" ").toLowerCase();
+  updateStudentSections();
+  updateFilterSections();
+}
 
-      return text.includes(query) &&
-        (!classFilter || s.className === classFilter);
-    });
+$("studentClass").addEventListener("change", updateStudentSections);
 
-    $("studentCount").textContent =
-      "Students found: " + filtered.length;
+function updateStudentSections() {
+  const className = $("studentClass").value;
+  const previousSection = $("studentSection").value;
 
-    $("studentList").replaceChildren();
+  $("studentSection").innerHTML =
+    '<option value="">Select Section</option>';
 
-    if(filtered.length === 0){
-      $("studentList").textContent = "Koi student record nahi mila.";
-      return;
-    }
+  const c = classes.find(item => item.name === className);
 
-    filtered.forEach(s=>{
-      const box = document.createElement("div");
-      box.className = "student";
-
-      const details = document.createElement("div");
-      details.textContent =
-        "GR Number: " + safeText(s.grNumber) + "\n" +
-        "Student: " + safeText(s.studentName) + "\n" +
-        "Father: " + safeText(s.fatherName) + "\n" +
-        "DOB: " + safeText(s.dob) + "\n" +
-        "Gender: " + safeText(s.gender) + "\n" +
-        "Class: " + safeText(s.className) + "\n" +
-        "Section: " + safeText(s.section);
-
-      details.style.whiteSpace = "pre-line";
-      box.appendChild(details);
-
-      if(currentRole === "admin"){
-        const actions = document.createElement("div");
-        actions.className = "actions";
-
-        const editButton = document.createElement("button");
-        editButton.className = "edit";
-        editButton.textContent = "Edit";
-        editButton.addEventListener("click",()=>editStudent(s));
-
-        const deleteButton = document.createElement("button");
-        deleteButton.className = "delete";
-        deleteButton.textContent = "Delete";
-        deleteButton.addEventListener("click",()=>deleteStudent(s));
-
-        actions.append(editButton,deleteButton);
-        box.appendChild(actions);
-      }
-
-      $("studentList").appendChild(box);
+  if (c && Array.isArray(c.sections)) {
+    c.sections.forEach(section => {
+      const option = document.createElement("option");
+      option.value = section;
+      option.textContent = section;
+      $("studentSection").appendChild(option);
     });
   }
 
-  // EDIT STUDENT
-  function editStudent(s){
-    if(currentRole !== "admin") return;
+  if (c && (c.sections || []).includes(previousSection)) {
+    $("studentSection").value = previousSection;
+  }
+}
 
-    editingId = s.id;
+$("filterClass").addEventListener("change", updateFilterSections);
 
-    $("grNumber").value = safeText(s.grNumber);
-    $("studentName").value = safeText(s.studentName);
-    $("fatherName").value = safeText(s.fatherName);
-    $("dob").value = safeText(s.dob);
-    $("gender").value = safeText(s.gender);
-    $("className").value = safeText(s.className);
-    $("section").value = safeText(s.section);
+function updateFilterSections() {
+  const className = $("filterClass").value;
 
-    $("formHeading").textContent = "✏️ Edit Student";
-    $("saveButton").textContent = "Update Student";
-    $("cancelEditButton").classList.remove("hidden");
+  $("filterSection").innerHTML =
+    '<option value="">All Sections</option>';
 
-    $("studentFormCard").scrollIntoView({behavior:"smooth"});
+  let sectionSet = new Set();
+
+  if (className) {
+    const c = classes.find(item => item.name === className);
+    (c?.sections || []).forEach(s => sectionSet.add(s));
+  } else {
+    students.forEach(s => {
+      if (s.section) sectionSet.add(s.section);
+    });
   }
 
-  $("cancelEditButton").addEventListener("click",resetStudentForm);
-
-  // DELETE STUDENT
-  async function deleteStudent(s){
-    if(currentRole !== "admin") return;
-
-    const confirmed = confirm(
-      "Kya aap " + safeText(s.studentName) +
-      " ka record delete karna chahte hain?"
-    );
-
-    if(!confirmed) return;
-
-    try{
-      await db.collection("Students").doc(s.id).delete();
-      message("listMessage","Student record delete ho gaya.","success");
-      await loadStudents();
-    }catch(error){
-      message("listMessage",
-        "Delete nahi hua: " + error.message,"error");
-    }
-  }
-
-  $("searchStudent").addEventListener("input",renderStudents);
-  $("filterClass").addEventListener("change",renderStudents);
-
-  // LOGOUT
-  $("logoutButton").addEventListener("click",async function(){
-    $("logoutButton").disabled = true;
-
-    try{
-      await auth.signOut();
-    }catch(error){
-      alert("Logout error: " + error.message);
-    }finally{
-      $("logoutButton").disabled = false;
-    }
+  [...sectionSet].sort().forEach(section => {
+    const option = document.createElement("option");
+    option.value = section;
+    option.textContent = section;
+    $("filterSection").appendChild(option);
   });
 
-})();
+  renderStudents();
+}
+
+/* STUDENT MANAGEMENT */
+
+async function loadStudents() {
+  const snapshot = await db.collection("Students").get();
+
+  students = snapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data()
+  }));
+
+  students.sort((a, b) =>
+    String(a.studentName || "").localeCompare(
+      String(b.studentName || "")
+    )
+  );
+
+  updateFilterSections();
+  renderStudents();
+}
+
+$("studentForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  if (!isAdmin()) return;
+
+  const docId = $("studentDocId").value;
+  const grNumber = $("grNumber").value.trim();
+  const studentName = $("studentName").value.trim();
+  const fatherName = $("fatherName").value.trim();
+  const dob = $("dob").value;
+  const gender = $("gender").value;
+  const className = $("studentClass").value;
+  const section = $("studentSection").value;
+
+  if (!grNumber || !studentName || !fatherName ||
+      !className || !section) {
+    showMessage("appMessage",
+      "Zaroori fields complete karein.", "error");
+    return;
+  }
+
+  const classExists = classes.some(c =>
+    c.name === className &&
+    (c.sections || []).includes(section)
+  );
+
+  if (!classExists) {
+    showMessage("appMessage",
+      "Selected class aur section check karein.", "error");
+    return;
+  }
+
+  const duplicateGR = students.some(s =>
+    s.grNumber === grNumber && s.id !== docId
+  );
+
+  if (duplicateGR) {
+    showMessage("appMessage",
+      "Yeh GR Number kisi aur student ka hai.", "error");
+    return;
+  }
+
+  const data = {
+    grNumber,
+    studentName,
+    fatherName,
+    dob,
+    gender,
+    className,
+    section,
+    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+  };
+
+  try {
+    $("saveStudentBtn").disabled = true;
+
+    if (docId) {
+      /*
+        Update existing document: purane document ka ID
+        wahi rahega, is liye naya duplicate record nahi banega.
+      */
+      await db.collection("Students").doc(docId).update(data);
+    } else {
+      data.createdAt =
+        firebase.firestore.FieldValue.serverTimestamp();
+
+      await db.collection("Students").add(data);
+    }
+
+    resetStudentForm();
+    await loadStudents();
+
+    showMessage("appMessage",
+      docId
+        ? "Student record update ho gaya."
+        : "Student Firebase mein save ho gaya.",
+      "ok");
+
+  } catch (error) {
+    showMessage("appMessage",
+      "Student save nahi hua: " + friendlyError(error),
+      "error");
+  } finally {
+    $("saveStudentBtn").disabled = false;
+  }
+});
+
+function renderStudents() {
+  const tbody = $("studentsTable");
+
+  const search = $("searchStudent").value
+    .trim().toLowerCase();
+
+  const classFilter = $("filterClass").value;
+  const sectionFilter = $("filterSection").value;
+
+  const filtered = students.filter(s => {
+    const text = [
+      s.grNumber,
+      s.studentName,
+      s.fatherName,
+      s.className,
+      s.section
+    ].join(" ").toLowerCase();
+
+    return text.includes(search) &&
+      (!classFilter || s.className === classFilter) &&
+      (!sectionFilter || s.section === sectionFilter);
+  });
+
+  $("studentCount").textContent =
+    "Students: " + filtered.length;
+
+  if (!filtered.length) {
+    tbody.innerHTML =
+      '<tr><td colspan="8">Koi student record nahi mila.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(s => `
+    <tr>
+      <td>${escapeHTML(s.grNumber || "")}</td>
+      <td>${escapeHTML(s.studentName || "")}</td>
+      <td>${escapeHTML(s.fatherName || "")}</td>
+      <td>${escapeHTML(s.dob || "")}</td>
+      <td>${escapeHTML(s.gender || "")}</td>
+      <td>${escapeHTML(s.className || "")}</td>
+      <td>${escapeHTML(s.section || "")}</td>
+      ${isAdmin() ? `
+        <td>
+          <button class="small-btn"
+            data-edit-student="${escapeHTML(s.id)}">
+            Edit
+          </button>
+          <button class="small-btn danger"
+            data-delete-student="${escapeHTML(s.id)}">
+            Delete
+          </button>
+        </td>
+      ` : ""}
+    </tr>
+  `).join("");
+}
+
+$("studentsTable").addEventListener("click", async e => {
+  const editId = e.target.dataset.editStudent;
+  const deleteId = e.target.dataset.deleteStudent;
+
+  if (!isAdmin()) return;
+
+  if (editId) {
+    const s = students.find(item => item.id === editId);
+    if (!s) return;
+
+    $("studentDocId").value = s.id;
+    $("grNumber").value = s.grNumber || "";
+    $("studentName").value = s.studentName || "";
+    $("fatherName").value = s.fatherName || "";
+    $("dob").value = s.dob || "";
+    $("gender").value = s.gender || "";
+
+    $("studentClass").value = s.className || "";
+    updateStudentSections();
+    $("studentSection").value = s.section || "";
+
+    $("studentFormTitle").textContent = "Edit Student";
+    $("saveStudentBtn").textContent = "Update Student";
+    $("cancelStudentBtn").classList.remove("hidden");
+
+    $("studentSection").scrollIntoView({behavior: "smooth"});
+  }
+
+  if (deleteId) {
+    await deleteStudent(deleteId);
+  }
+});
+
+async function deleteStudent(id) {
+  const s = students.find(item => item.id === id);
+  if (!s) return;
+
+  if (!confirm(
+    "Kya aap " + (s.studentName || "is student") +
+    " ka record delete karna chahte hain?"
+  )) return;
+
+  try {
+    await db.collection("Students").doc(id).delete();
+
+    await loadStudents();
+
+    showMessage("appMessage",
+      "Student record delete ho gaya.", "ok");
+
+  } catch (error) {
+    showMessage("appMessage",
+      "Student delete nahi hua: " + friendlyError(error),
+      "error");
+  }
+}
+
+$("cancelStudentBtn").addEventListener("click", resetStudentForm);
+
+function resetStudentForm() {
+  $("studentForm").reset();
+  $("studentDocId").value = "";
+  $("studentFormTitle").textContent = "Student Registration";
+  $("saveStudentBtn").textContent = "Save Student";
+  $("cancelStudentBtn").classList.add("hidden");
+  updateStudentSections();
+}
+
+/* SEARCH & FILTER */
+
+$("searchStudent").addEventListener("input", renderStudents);
+$("filterSection").addEventListener("change", renderStudents);
+
 </script>
-
 </body>
 </html>
